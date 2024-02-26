@@ -27,3 +27,4 @@ Going through the exam objectives
   
 * The Linux Command Line by No Starch Press
 
+* All About RHCSA by DexTutor // https://www.youtube.com/watch?v=TmrS7FhaaRA&list=PLlr7wO747mNrUoTuXhZ0REJw3hL4oWvLm
