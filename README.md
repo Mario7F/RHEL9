@@ -7,12 +7,17 @@ This is a Repo contains study notes for the RHCSA Exam
 
 * Study Notes
 * Lab Setup
+* Exam Prep
 
 # Study Notes
 This is a collection of notes I've recorded during my study. 
 
 # Lab Setup
 Setting up servers to accomplish the task listed in the exam objectives
+
+# Exam Prep
+Going through the exam objectives
+
 
 # Resources
 
