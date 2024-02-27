@@ -12,7 +12,7 @@
 
 ### Vim Commands 
 
- - `wq!` is how you write and quit the `vim` editor,
+ - `:wq!` is how you write and quit the `vim` editor,
  - `Esc` Enter command mode,
  - `i` Enter input mode,
  - `o` Open new line in input mode,
