@@ -41,5 +41,5 @@
 -  `2>/dell/null` will only see the regular output without error messages
 -  `|` pipe command to combine commands
 -  `touch` Create a file
--  'echo' To display a variable
+-  `echo` To display a variable
 -  `cat` To display a text file
