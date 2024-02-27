@@ -43,3 +43,4 @@
 -  `touch` Create a file
 -  `echo` To display a variable
 -  `cat` To display a text file
+-  `alias` can be used to define custom commands
