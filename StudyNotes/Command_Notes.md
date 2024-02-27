@@ -33,3 +33,9 @@
 
 ### Basics of Bash Shell
 
+- `ls` list contents
+- `cd` Change Directory
+- `pwd` Present Working Directory
+-  `>` combine files into a single `output`
+-  `>>` append files
+-  `2>/dell/null` will only see the regular output without error messages
