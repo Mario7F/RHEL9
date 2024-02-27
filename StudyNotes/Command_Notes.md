@@ -30,3 +30,6 @@
  - `^` Move to the start of line,
  - `$` Move to the end of line,
  - `w` Move to the next word
+
+### Basics of Bash Shell
+
