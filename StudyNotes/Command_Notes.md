@@ -44,3 +44,17 @@
 -  `echo` To display a variable
 -  `cat` To display a text file
 -  `alias` can be used to define custom commands
+
+### Filesystem Hierarchy
+
+- `/` The home directory of the root user
+- `/etc` Contains the Linux configuration files-files that control when and how programs start up
+- `/home` The users home directory
+- `/mnt` Where other filesystems are attached or mounted to the filesystem
+- `/media` Where CDs and USB devices are usually attached or mounted to the filesystem
+- `/bin` Where application binaries (the equivalent of executables in Microsoft Windows) reside
+- `/lib` Where you'll find libraries, shared programs similar to Windows DLLs
+- `/sys` Kernels view of the hardware
+- `/boot` Kernel image
+- `/proc` View of internal kernal data
+- `/dev` Special device files
