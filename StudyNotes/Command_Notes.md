@@ -48,8 +48,6 @@
 -  `rm` Used to remove a file
 -  `rmdir` To remove a directory with no files within them
 -  `rm -r` To remove a directory with the contents inside
--  `Find` For a more advanced search with more parameters such as date of creation or modification, the owner, the group, permissions and the size. 
--  `whereis` To find binary files
 -  `cp` Use to copy and duplicate the file in the new location and leanve the old one in place.
 -  `mv` Used to rename a file and move a file from one location and removes it from the old location
 -  
@@ -68,3 +66,7 @@
 - `/proc` View of internal kernal data
 - `/dev` Special device files
 - `/tmp` Temporary files
+
+- ### Essential File Management Commands
+- `whereis` To find binary files
+- `Find` For a more advanced search with more parameters such as date of creation or modification, the owner, the group, permissions and the size.
