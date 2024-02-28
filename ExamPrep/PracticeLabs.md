@@ -23,3 +23,4 @@
 ![Screen Shot 2024-02-28 at 12 26 48 PM](https://github.com/Mario7F/RHEL9/assets/59115100/03c29b1c-8fe6-490c-959c-9495dd3c25aa)
 #### Install package and check version
 - nmap
+![Screen Shot 2024-02-28 at 12 38 28 PM](https://github.com/Mario7F/RHEL9/assets/59115100/8012b4f5-ed7a-4b79-ba1b-25402e8e7446)
