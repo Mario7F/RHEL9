@@ -44,6 +44,10 @@
 -  `echo` To display a variable
 -  `cat` To display a text file
 -  `alias` can be used to define custom commands
+-  `mkdir` Create a folder
+-  `rm -rf` To remove a folder and the contents inside
+-  `Find`For a more advanced search with more parameters such as date of creation or modification, the owner, the group, permissions and the size. 
+-  `whereis` To find binary files
 
 ### Filesystem Hierarchy
 
