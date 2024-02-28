@@ -67,3 +67,4 @@
 - `/boot` Kernel image
 - `/proc` View of internal kernal data
 - `/dev` Special device files
+- `/tmp` Temporary files
