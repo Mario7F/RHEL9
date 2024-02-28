@@ -19,3 +19,5 @@
 #### Searching for repo/Creating a new Repo using VIM
 ![Screen Shot 2024-02-28 at 12 23 18 PM](https://github.com/Mario7F/RHEL9/assets/59115100/0a0a9c56-336a-42ca-ab25-6c1c6df05c3b)
 
+#### Configuring the repo
+![Screen Shot 2024-02-28 at 12 26 48 PM](https://github.com/Mario7F/RHEL9/assets/59115100/03c29b1c-8fe6-490c-959c-9495dd3c25aa)
