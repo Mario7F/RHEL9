@@ -50,7 +50,6 @@
 -  `rm -r` To remove a directory with the contents inside
 -  `cp` Use to copy and duplicate the file in the new location and leanve the old one in place.
 -  `mv` Used to rename a file and move a file from one location and removes it from the old location
--  
 
 ### Filesystem Hierarchy
 
@@ -70,3 +69,6 @@
 - ### Essential File Management Commands
 - `whereis` To find binary files
 - `Find` For a more advanced search with more parameters such as date of creation or modification, the owner, the group, permissions and the size.
+- `mount` /dev/sdb1 /`mnt` to mount a device to a directory `mnt` is the most common directory used for mounting devices
+- `findmnt` shows all currently mounted devices and their place in the filesystem
+- `lsblk` list block devices, devices that are not mounted yet.
