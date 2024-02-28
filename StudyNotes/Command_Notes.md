@@ -68,7 +68,8 @@
 
 - ### Essential File Management Commands
 - `whereis` To find binary files
-- `Find` For a more advanced search with more parameters such as date of creation or modification, the owner, the group, permissions and the size.
+- `Find` For a more advanced search with more parameters such as date of creation or modification, the owner, the group, permissions and the size
 - `mount` /dev/sdb1 /`mnt` to mount a device to a directory `mnt` is the most common directory used for mounting devices
 - `findmnt` shows all currently mounted devices and their place in the filesystem
-- `lsblk` list block devices, devices that are not mounted yet.
+- `lsblk` list block devices, devices that are not mounted yet
+- `umount` is used to unmount a device
