@@ -11,7 +11,7 @@
 #### Use cat command to create a new file and then append to that file. 
 
 
-# Configuring Repositories in Linux
+# Configuring Repositories in Linux and Install Packages
 
   #### Configure the repositories 
 - http://xyz.server.com/baseos
@@ -21,3 +21,5 @@
 
 #### Configuring the repo
 ![Screen Shot 2024-02-28 at 12 26 48 PM](https://github.com/Mario7F/RHEL9/assets/59115100/03c29b1c-8fe6-490c-959c-9495dd3c25aa)
+#### Install package and check version
+- nmap
