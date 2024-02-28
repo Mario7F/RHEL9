@@ -73,3 +73,5 @@
 - `findmnt` shows all currently mounted devices and their place in the filesystem
 - `lsblk` list block devices, devices that are not mounted yet
 - `umount` is used to unmount a device
+- `ln` is used to create hard links and the `ln-s` is used to created the symbolic link. These are comparable to shortcuts, as links are pointers to files in different locations.
+- 
