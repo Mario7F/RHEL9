@@ -12,3 +12,10 @@
 
 
 # Configuring Repositories in Linux
+
+  #### Configure the repositories 
+- http://xyz.server.com/baseos
+- http://xyz.server.com/appstream
+#### Searching for repo/Creating a new Repo using VIM
+
+
