@@ -74,4 +74,8 @@
 - `lsblk` list block devices, devices that are not mounted yet
 - `umount` is used to unmount a device
 - `ln` is used to create hard links and the `ln -s` is used to created the symbolic link. These are comparable to shortcuts, as links are pointers to files in different locations.
-- 
+- `tar` Compress, extract or list
+- `tar -cvf` my_archive.tar /home/etc is used to create an archive
+- `tar -tvf` will show contents of an archive
+- `tar -xvf` my_archive extracts to the current directory
+- `-z`,`-j` and `-J` to add compression
