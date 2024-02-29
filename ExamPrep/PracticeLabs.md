@@ -24,3 +24,11 @@
 #### Install package and check version
 - nmap
 ![Screen Shot 2024-02-28 at 12 38 28 PM](https://github.com/Mario7F/RHEL9/assets/59115100/8012b4f5-ed7a-4b79-ba1b-25402e8e7446)
+
+#### Managing Files
+- Use `tar` to create a compressed archive of all files in the /etc and /opt directories. Write this archive to your home directory
+- 
+- Create a symbolic link to the archive you've just created in the /tmp directory
+-
+-Remove the archive from your home directory. What happens to the symbolic link?
+-
