@@ -25,10 +25,10 @@
 - nmap
 ![Screen Shot 2024-02-28 at 12 38 28 PM](https://github.com/Mario7F/RHEL9/assets/59115100/8012b4f5-ed7a-4b79-ba1b-25402e8e7446)
 
-#### Managing Files
-- Use `tar` to create a compressed archive of all files in the /etc and /opt directories. Write this archive to your home directory
-- 
-- Create a symbolic link to the archive you've just created in the /tmp directory
--
--Remove the archive from your home directory. What happens to the symbolic link?
--
+# Managing Files
+#### Use `tar` to create a compressed archive of all files in the /etc and /opt directories. Write this archive to your home directory
+  ![Screen Shot 2024-02-29 at 12 55 06 PM](https://github.com/Mario7F/RHEL9/assets/59115100/b5de4b26-3f91-423f-9119-2d524a747c47)
+#### Create a symbolic link to the archive you've just created in the /tmp directory
+  ![Screen Shot 2024-02-29 at 12 58 22 PM](https://github.com/Mario7F/RHEL9/assets/59115100/2358cbf7-300d-40d7-b62c-cdad7c3e0d87)
+#### Remove the archive from your home directory. What happens to the symbolic link?
+  ![Screen Shot 2024-02-29 at 12 59 45 PM](https://github.com/Mario7F/RHEL9/assets/59115100/eb3c2503-80d4-4154-8267-825987b83985)
