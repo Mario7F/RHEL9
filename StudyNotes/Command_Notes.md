@@ -78,4 +78,4 @@
 - `tar -cvf` my_archive.tar /home/etc is used to create an archive
 - `tar -tvf` will show contents of an archive
 - `tar -xvf` my_archive extracts to the current directory
-- `-z`,`-j` and `-J` to add compression
+- `-z`gzip is the most common compression utility ,`-j` bzip2 is an alternative and `-J`xz shows more often. These are used to add compression, example 'tar -czvf` my_archive.tgz /home/etc
