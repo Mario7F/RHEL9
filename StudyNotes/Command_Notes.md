@@ -96,3 +96,9 @@
  - `head` will show the first 10 lines of a text file
  - `tail` will show the last 10 lines of a text file
  - `cat` To display a text file
+
+### Managing users, group and root privileges
+
+- `su` is used to switch users or using root.
+- `sudo` is used to perform administrative task
+- 
