@@ -1,12 +1,14 @@
 # RHCSA Commands
 ### Getting Around The Command Line
 ### Documentation Commands
+
  - `man` is the best source to get extensive usage information
  - `man -k` to search the man database based on keywords
  - For the basic administration, the following sections matter most `man` (1) Executable programs or shell commands (5) File formats and conventions (8) System administration commands `passwd` 
 - `grep` to filter the results
 
 ### Editors
+
  - `nano` easy-to-use editor
  - `vi` or `vim` advanced editor,
 
@@ -60,13 +62,22 @@
 - `/media` Where CDs and USB devices are usually attached or mounted to the filesystem
 - `/bin` Where application binaries (the equivalent of executables in Microsoft Windows) reside
 - `/lib` Where you'll find libraries, shared programs similar to Windows DLLs
-- `/sys` Kernels view of the hardware
-- `/boot` Kernel image
-- `/proc` View of internal kernal data
-- `/dev` Special device files
+- `/sys` This contains system information related to kernel features and connected devices
+- `/boot` Kernel image, files used by the system to boot
+- `/proc` View of internal kernal data. This is a special virtual filesystem representing the processes running in the system.
+- `root` The home folder for the "root" super-user. This is not present in /home in case it gets full so that root can always log in to the system
+- `srv` This contains system information related to kernel features and connected devices
+- `/usr` This contains the read-only user data, including libraries, binaries, headers, sources and other shared data
+- `var` This is the directory to be used to host content to be managed by different programs, from virtual machines to logs
+- `/dev` The directory that includes files representing the devices connected to it (whether disk, keyboards, or audio devices, they are represented here)
 - `/tmp` Temporary files
+- `/usr/bin` This is the directory for the regular binaries used in the system
+- `/usr/lib` This is the directory for the holding the libraries used in the system
+- `/usr/local` This indicates local data specific to this host. When building local scripts or binaries for this specific system, host them here
+- `/usr/sbin` This is the directory for the binaries to be used by the superuser only.
 
-- ### Essential File Management Commands
+ ### Essential File Management Commands
+ 
 - `whereis` To find binary files
 - `Find` For a more advanced search with more parameters such as date of creation or modification, the owner, the group, permissions and the size
 - `mount` /dev/sdb1 /`mnt` to mount a device to a directory `mnt` is the most common directory used for mounting devices
@@ -79,3 +90,8 @@
 - `tar -tvf` will show contents of an archive
 - `tar -xvf` my_archive extracts to the current directory
 - `-z` gzip is the most common compression utility ,`-j` bzip2 is an alternative and `-J`xz shows more often. These are used to add compression, example 'tar -czvf` my_archive.tgz /home/etc
+- `.tar` `.tgz` `.bz2` `.xz` naming convention that goes with gzip, bzip2 and xz 
+
+ ### Managing Text Files Commands
+
+ -
