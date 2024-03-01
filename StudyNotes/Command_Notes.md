@@ -43,7 +43,6 @@
 -  `|` pipe command to combine commands
 -  `touch` Create a file
 -  `echo` To display a variable
--  `cat` To display a text file
 -  `alias` can be used to define custom commands
 -  `mkdir` Create a folder
 -  `rm` Used to remove a file
@@ -94,3 +93,6 @@
  ### Managing Text Files Commands
 
  - `grep` to filter the results
+ - `head` will show the first 10 lines of a text file
+ - `tail` will show the last 10 lines of a text file
+ - `cat` To display a text file
