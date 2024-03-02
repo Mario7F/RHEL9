@@ -5,3 +5,4 @@
   - Allow using useradd, usermod and userdel
   - Allow changing passwords, but not the password for user root
 - Ensure that the user only needs to enter a password for `sudo` operations every 60 minutes
+
