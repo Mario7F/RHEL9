@@ -50,6 +50,32 @@
 - Don't edit this file directly, only edit it through `visudo`
 - Instead of editing /etc/sudoers, consider creating drop-in files in /etc.sudoers.d
 - /etc/sudoers is installed from packages and may be overwritten, drop-in files will never be overwritten
+
+  ##### *Providing Administator Access*
+  - Users that are member of the group `wheel` get full sudo access
+   - This is accomplished by `%wheel ALL=(ALL) ALL` in /etc/sudoers
+   - Use `usermod -aG wheel myuser` to add a user to the group Wheel
+  - Do NOT enable the line `%wheel ALL =(ALL) NOPASSWD: ALL`
+   - It will provide full sudo access  without entering a password and is very dangerous
+  --If you don't like entering your user password every five minutes, increase authentication token expiration by adding the following `Defaults timestamp_type=global,timestamp_timeout=60`
+
+ #### Providing Access To Specific Task
+ - Use drop-in files to provide admin access to specific task
+  - username `ALL=/sbin/useradd,/usr/bin/passwd
+- Consider using command arguments to make the commands more specific
+  - `%users ALL=/bin/mount /dev/sdb,/bin/umount /dev/sdb
+  - username `ALL=/usr/bin/passwd,! /usr/bin/passwd root
+
+ #### 8.5 Using Secure Shell
+ - By default, all RHEL servers run a Secure Shell (SSH) server
+    - Use `systemctl` to verify
+     - `systemctl status sshd`
+ - SSH access is allowed through the firewall by default
+ - Notice that root access is often denied
+ - Use `ssh` to connect to a remote server
+   - On the remote server, use `ip a` to find the IP address
+   - `ssh <ip>` is an example to connect to an IP address using your current user account
+   - `ssh user@<ip>` will connect as a specific user
   
 ### Lesson 9 Managing Users And Groups
 -
