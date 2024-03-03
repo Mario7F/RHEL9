@@ -96,6 +96,15 @@
  - Settings in /etc/default/useradd apply to `useradd` only (Not advised either)
  - Alternatively, write default settings to `/etc/login.defs` (preferred)
  - Files in `/etc/skel` are created to the user home direction upon creation
+#### 9.6 Managing Group Membership
+- *Limit Access*
+  - User accounts can be temprarily locked
+  - `usermod -L anna` will lock anna
+  - `usermod -U anna` will unlock anna
+- User accounts can be set to expire also
+  - `usermod -e 2025-01-01 anna` expires user account anna on 01-01-2025
+- Set `/sbin/nologin` as the shell users that are not intended to log in at all
+  - `usermod -s /sbin/nologin myapp` 
  
 ### Lesson 10 Securing Files With Permissions
 -
