@@ -112,6 +112,20 @@
 - `lid -g` `groupname` is how you would list the users in the `groupname`
 - `groupdel` and `groupmod` can be used to delete and modify groups
 - Use `lid -g groupname` to list all users that are members of a specific group
+
+#### 9.8 Setting Password Properties
+- *Password Encryption*
+- Encrypted passwords are stored in /etc/shadows
+- The encrypted string shows 3 pieces of information
+  - The hashing algorithm
+  - The random salt
+  - The encrypted hash of the user password
+- *Manage Password Settings*
+- Basic password requirements are set in `/etc/login.defs`
+- For advanced password properties, Pluggable Authentication Modules (PAM) can be used
+  - Look for the pam_faillock module
+- To change password settings for current users, use `chage` or `passwd` as root
+ 
  
 ### Lesson 10 Securing Files With Permissions
 -
