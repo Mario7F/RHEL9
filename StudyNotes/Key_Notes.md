@@ -137,7 +137,10 @@
  
   #### 10.2 Changing File Ownership
    - `chown user[:group]file` to set user-ownership, example `chown lisa newfiles/` (user lisa is now owner of the newfiles/) also `chown linda:sales newfiles/ (lisa from group sales is the owner of newfiles/) also `chown sales: newfiles/`( group sales is owner of newfiles/)
-   - Use `chgrp group file`to set group-ownership 
--
--
+   - Use `chgrp group file`to set group-ownership
+     
+ #### 10.3 Understanding Basic Permissions
+- Read(4(, able to open the file and on the directory you are able to list the files
+- Write(2), modify files and on the directory you are able to create or delete files
+- Execute(1), run an executable on the file and on the directory you are able to `cd` to get inside the directory
 
