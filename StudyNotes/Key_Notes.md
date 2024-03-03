@@ -98,13 +98,19 @@
  - Files in `/etc/skel` are created to the user home direction upon creation
 #### 9.6 Managing Group Membership
 - *Limit Access*
-  - User accounts can be temprarily locked
+  - User accounts can be temporarily locked
   - `usermod -L anna` will lock anna
   - `usermod -U anna` will unlock anna
 - User accounts can be set to expire also
   - `usermod -e 2025-01-01 anna` expires user account anna on 01-01-2025
 - Set `/sbin/nologin` as the shell users that are not intended to log in at all
-  - `usermod -s /sbin/nologin myapp` 
+  - `usermod -s /sbin/nologin myapp`
+ 
+#### 9.7 Creating and Managing Groups
+- Use `groupadd` to add groups
+- `groupmod -U` to add `user` to `group`
+- `groupdel` and `groupmod` can be used to delete and modify groups
+- Use `lid -g groupname` to list all users that are members of a specific group
  
 ### Lesson 10 Securing Files With Permissions
 -
