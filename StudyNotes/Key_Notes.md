@@ -108,7 +108,8 @@
  
 #### 9.7 Creating and Managing Groups
 - Use `groupadd` to add groups
-- `groupmod -U` to add `user` to `group`
+- `groupmod -U` to add `user` to `groupname`
+- `lid -g` `groupname` is how you would list the users in the `groupname`
 - `groupdel` and `groupmod` can be used to delete and modify groups
 - Use `lid -g groupname` to list all users that are members of a specific group
  
