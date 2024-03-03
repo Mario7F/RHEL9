@@ -101,4 +101,10 @@
 
 - `su` is used to switch users or using root.
 - `sudo` is used to perform administrative task
-- 
+- `ssh` remote into machines
+
+### Create and Manage Users
+- `useradd` Create user accounts
+- `usermod` Modify user accounts
+- `userdel` Delete user accounts
+- `passwd` Set passwords
