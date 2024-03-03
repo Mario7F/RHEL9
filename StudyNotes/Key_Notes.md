@@ -128,7 +128,16 @@
  
  
 ### Lesson 10 Securing Files With Permissions
--
+- #### 10.1 Understanding Ownership
+  - To determine which permissions a user has, Linux uses ownership
+  - Every file has a user-owner, a group-owner and the others entity that is also
+  - Linux permissions are not additive, if you're the owner, permissions are applied and that's all
+  - Use `ls -l` to display current ownership and associated permissions
+  - Best practice: Set ownership before modifying permissions
+ 
+  #### 10.2 Changing File Ownership
+   - `chown user[:group]file` to set user-ownership, example `chown lisa newfiles/` (user lisa is now owner of the newfiles/) also `chown linda:sales newfiles/ (lisa from group sales is the owner of newfiles/) also `chown sales: newfiles/`( group sales is owner of newfiles/)
+   - Use `chgrp group file`to set group-ownership 
 -
 -
 
