@@ -140,7 +140,7 @@
    - Use `chgrp group file`to set group-ownership
      
  #### 10.3 Understanding Basic Permissions
-- Read(4(, able to open the file and on the directory you are able to list the files
-- Write(2), modify files and on the directory you are able to create or delete files
-- Execute(1), run an executable on the file and on the directory you are able to `cd` to get inside the directory
+   - Read(4(, able to open the file and on the directory you are able to list the files
+   - Write(2), modify files and on the directory you are able to create or delete files
+   - Execute(1), run an executable on the file and on the directory you are able to `cd` to get inside the directory
 
