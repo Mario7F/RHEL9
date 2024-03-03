@@ -78,9 +78,20 @@
    - `ssh user@<ip>` will connect as a specific user
   
 ### Lesson 9 Managing Users And Groups
--
--
--
+  #### 9.1 Understanding the Purpose of User Accounts
+   - A user is a security principle, user accounts are used to provide people or processes access to system resources
+   - Process using system accounts
+   - People are using regular user accounts
+- #### 9.2 Setting User Properties
+- User properties are managed in /etc/password
+   - *Name:* the name of the account
+   - *Password:* the secret that is used for authentication, may be disabled
+   - *UID:* a unique identifier for users
+   - *GID:* the ID of the primary group
+   - *GECOS:* additional non-mandatory information about the user
+   - *Home Directory:* the environment where users create personal files
+   - *Shell:* the program that will be started after successful authentication
+   - 
 ### Lesson 10 Securing Files With Permissions
 -
 -
