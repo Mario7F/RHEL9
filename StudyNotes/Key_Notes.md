@@ -46,14 +46,14 @@
 
   #### 8.4 Managing sudo Configuration
    ##### *Exploring /etc/sudoers*
-- Sudo configuration is managed through /etc/sudoers
+- Sudo configuration is managed through `/etc/sudoers`
 - Don't edit this file directly, only edit it through `visudo`
-- Instead of editing /etc/sudoers, consider creating drop-in files in /etc.sudoers.d
-- /etc/sudoers is installed from packages and may be overwritten, drop-in files will never be overwritten
+- Instead of editing `/etc/sudoers`, consider creating drop-in files in `/etc.sudoers.d`
+- `/etc/sudoers` is installed from packages and may be overwritten, drop-in files will never be overwritten
 
   ##### *Providing Administator Access*
   - Users that are member of the group `wheel` get full sudo access
-   - This is accomplished by `%wheel ALL=(ALL) ALL` in /etc/sudoers
+   - This is accomplished by `%wheel ALL=(ALL) ALL` in `/etc/sudoers`
    - Use `usermod -aG wheel myuser` to add a user to the group Wheel
   - Do NOT enable the line `%wheel ALL =(ALL) NOPASSWD: ALL`
    - It will provide full sudo access  without entering a password and is very dangerous
@@ -61,10 +61,10 @@
 
  #### Providing Access To Specific Task
  - Use drop-in files to provide admin access to specific task
-  - username `ALL=/sbin/useradd,/usr/bin/passwd
+  - username `ALL=/sbin/useradd,/usr/bin/passwd` (Able to add users and change their password)
 - Consider using command arguments to make the commands more specific
-  - `%users ALL=/bin/mount /dev/sdb,/bin/umount /dev/sdb
-  - username `ALL=/usr/bin/passwd,! /usr/bin/passwd root
+  - `%users ALL=/bin/mount /dev/sdb,/bin/umount /dev/sdb`
+  - username `ALL=/usr/bin/passwd,! /usr/bin/passwd root` (able to change passwords but not for the root account)
 
  #### 8.5 Using Secure Shell
  - By default, all RHEL servers run a Secure Shell (SSH) server
@@ -82,7 +82,7 @@
    - A user is a security principle, user accounts are used to provide people or processes access to system resources
    - Process using system accounts
    - People are using regular user accounts
-- #### 9.2 Setting User Properties
+ #### 9.2 Setting User Properties
 - User properties are managed in /etc/password
    - *Name:* the name of the account
    - *Password:* the secret that is used for authentication, may be disabled
@@ -91,6 +91,11 @@
    - *GECOS:* additional non-mandatory information about the user
    - *Home Directory:* the environment where users create personal files
    - *Shell:* the program that will be started after successful authentication
+ #### 9.4 Defining User Default Settings
+ - Use `useradd -D` to specify default settings (advised not to do this)
+ - Settings in /etc/default/useradd apply to `useradd` only (Not advised either)
+ - Alternatively, write default settings to `/etc/login.defs` (preferred)
+ - Files in `/etc/skel` are created to the user home direction upon creation
  
 ### Lesson 10 Securing Files With Permissions
 -
