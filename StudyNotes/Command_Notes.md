@@ -106,11 +106,14 @@
 ### Create and Manage Users
 - `useradd` Create user accounts
 - `usermod` Modify user accounts
+- `usermod -L` Lock user account
+- `usermod -U` Unlock user account
+- `usermod -e` to set expiration example `usermod -e 2025-01-01 anna`
 - `userdel` Delete user accounts
 - `userdel -rf` To remove the user and all the files associated with the user
 - `passwd` or `chage` Set passwords
 - `groupadd` add group
 - `groupdel` delete group
 - `groupmod` modify group
-- 'groupmod -U` to add user to group name 
+- `groupmod -U` to add user to group name 
 - `lid -g groupname` to list all users in the group
