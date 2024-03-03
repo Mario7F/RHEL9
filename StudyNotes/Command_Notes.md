@@ -107,4 +107,5 @@
 - `useradd` Create user accounts
 - `usermod` Modify user accounts
 - `userdel` Delete user accounts
+- `userdel -rf` To remove the user and all the files associated with the user
 - `passwd` Set passwords
