@@ -91,7 +91,7 @@
    - *GECOS:* additional non-mandatory information about the user
    - *Home Directory:* the environment where users create personal files
    - *Shell:* the program that will be started after successful authentication
-   - 
+ 
 ### Lesson 10 Securing Files With Permissions
 -
 -
