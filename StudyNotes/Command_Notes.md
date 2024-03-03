@@ -108,4 +108,9 @@
 - `usermod` Modify user accounts
 - `userdel` Delete user accounts
 - `userdel -rf` To remove the user and all the files associated with the user
-- `passwd` Set passwords
+- `passwd` or `chage` Set passwords
+- `groupadd` add group
+- `groupdel` delete group
+- `groupmod` modify group
+- 'groupmod -U` to add user to group name 
+- `lid -g groupname` to list all users in the group
