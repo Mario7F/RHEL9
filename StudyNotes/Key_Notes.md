@@ -1,8 +1,13 @@
 # Notes From Sander Van Vught RHCSA RHEL 9 Course
 
 ### Lesson 4 Exploring The Essential Tools
- -
- -
+ - `man` is the best source to get extensive usage information
+   - Sections define command types
+   - Many `man` pages have examples
+   - Search for text using `/`
+ - Other documentation solutions are available, but not as important
+   - GNU software has full documentation available through `info`
+   - `pinfo` is an easier interface to navigate than `info`
  -
 
 
