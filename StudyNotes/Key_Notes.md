@@ -28,6 +28,19 @@
    - Press `i` to enter insert mode
    - After inserting text, don't forget to get back to command mode to save your text and exit
 
+  #### 4.5 Exploring vim
+  - `Esc` Enter command mode
+  - `i` `a` Enter input mode
+  - `o` Open new line in input mode
+  - `:wq!` Write and quit
+  - `:q!` Quit without saving anything
+  - `dd` Delete the current line
+  - `yy` Copy the current line
+  - `p` Paste the text currently in the buffer
+  - `v` Enter visual mode
+  - `u` Undo the last operation
+  - `Ctrl-r` Redo the last operation undone
+
 
 ### Lesson 5 Understanding The Bash Shell
 -
