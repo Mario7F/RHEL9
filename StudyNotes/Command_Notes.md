@@ -120,4 +120,4 @@
 
   ### Changing Ownership and Setting Permissions
 - `chown user[:group]file` to set user-ownership, example chown lisa newfiles/ (user lisa is now owner of the newfiles/) also `chown linda:sales newfiles/` (lisa from group sales is the owner of newfiles/) also `chown sales: newfiles/`( group sales is owner of newfiles/`
-- Use chgrp group fileto set group-ownership
+- Use `chgrp group fileto` set group-ownership
