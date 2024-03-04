@@ -1,3 +1,19 @@
+### Lesson 4 Lab
+- Locate the `man` page that shows how to set a password
+- Use the `man` page for `useradd` and create a user with the name Joy
+- Set the password for user Joy to "password"
+- Use `vim` to create a file with the name users, and make sure that it contains the names alex, linda, and belinda on separate lines
+
+ ![Screen Shot 2024-03-04 at 2 10 14 PM](https://github.com/Mario7F/RHEL9/assets/59115100/cf7d47ba-0c1a-4120-ab08-e5043eb6d0c9)
+
+ ![Screen Shot 2024-03-04 at 2 19 34 PM](https://github.com/Mario7F/RHEL9/assets/59115100/c37ffc59-daeb-4561-85a6-d8d4f0f8b029)
+
+ ![Screen Shot 2024-03-04 at 2 21 48 PM](https://github.com/Mario7F/RHEL9/assets/59115100/f63b5ff2-cd45-4a30-8030-d93d1d527bc1)
+
+ ![Screen Shot 2024-03-04 at 2 23 50 PM](https://github.com/Mario7F/RHEL9/assets/59115100/42ed38f4-2e34-4fa3-9cc3-e4f70b25e3cc)
+
+ ![Screen Shot 2024-03-04 at 2 25 03 PM](https://github.com/Mario7F/RHEL9/assets/59115100/ee96ac8d-4020-4498-9e5e-944bc79d5854)
+
 ### Lesson 8 Lab
 
 - Use `useradd linda` to create a user linda
