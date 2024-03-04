@@ -150,3 +150,9 @@
    - `chmod 750 myfile` (absolute mode, using digits to refer to the permissions you want to set) (The 7 is related to the user, 5 to the group and the 0 to others. The 7 is (4+2+1 which is read+write+execute) the 5 is (read +execute) and the 0 is none
    - `chmod +x myscript` is the relative mode if you want to apply a indivual to a file
 
+     #### 10.5 Configuring Shared Group
+     - Understanding Shared Group Directories
+      - If members of the same group need to share files within a direcory, some special permissions are required
+      - The Set Group ID (SGID) permission ensures that all files created in the shared group directory are group owned by the group owner of the directory
+      - The sticky bit permission ensures that only the user who is owner of the file, or the directory that contains the file, is allowed to delete the file
+
