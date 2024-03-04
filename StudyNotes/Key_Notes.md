@@ -140,7 +140,7 @@
    - Use `chgrp group file`to set group-ownership
      
  #### 10.3 Understanding Basic Permissions
-   - Read(4(, able to open the file and on the directory you are able to list the files
+   - Read(4), able to open the file and on the directory you are able to list the files
    - Write(2), modify files and on the directory you are able to create or delete files
    - Execute(1), run an executable on the file and on the directory you are able to `cd` to get inside the directory
 
@@ -160,5 +160,12 @@
       - `chmod +t mydir` assigns sticky bit to the directory
       - In absolute mode, a four digit number is used, of which the first digit is for the special permissions
       - `chmod 3770 mydir` assigns SGID and sticky it, as well as rwx for user and group 
-       
+
+       #### 10.6 Securing Files with Permissions
+  - Applying Default Permissions
+      - The `umask` is a shell setting that subtracts that umask from the default permissions
+        - Default is set in /etc/bashrc
+        - Set user-specific overrides in ~/.bashrc
+      - Default permissions for file are 666
+      - Default permissions for directory are 777
 
