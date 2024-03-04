@@ -48,3 +48,11 @@
 - Create a shared group directory structure /data/profs and /data/students that meets the following conditions
    - Members of the groups have full read and write access to their directories, others has no permissions at all
 - Modify default permission settings such that normal users have a umask that allow the user and group to write, create and execute files and directories while denying all other access to others
+
+- ![Screen Shot 2024-03-04 at 8 19 39 AM](https://github.com/Mario7F/RHEL9/assets/59115100/6a40600b-78f7-4792-990d-b65399ba169a)
+
+- ![Screen Shot 2024-03-04 at 8 30 15 AM](https://github.com/Mario7F/RHEL9/assets/59115100/7b7e78ff-95b2-4301-bb54-3fb6c20aa2c8)
+
+- ![Screen Shot 2024-03-04 at 8 34 55 AM](https://github.com/Mario7F/RHEL9/assets/59115100/4b30bbce-a98d-479b-83f4-fa6eb9f18464)
+
+- ![Screen Shot 2024-03-04 at 8 37 45 AM](https://github.com/Mario7F/RHEL9/assets/59115100/5b753bf3-ff96-446e-9527-01f842d1d5c9)
