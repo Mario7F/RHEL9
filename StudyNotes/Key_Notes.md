@@ -151,8 +151,14 @@
    - `chmod +x myscript` is the relative mode if you want to apply a indivual to a file
 
      #### 10.5 Configuring Shared Group
-     - Understanding Shared Group Directories
+  - Understanding Shared Group Directories
       - If members of the same group need to share files within a direcory, some special permissions are required
       - The Set Group ID (SGID) permission ensures that all files created in the shared group directory are group owned by the group owner of the directory
       - The sticky bit permission ensures that only the user who is owner of the file, or the directory that contains the file, is allowed to delete the file
+  - Applying Shared Group Permissions
+      - `chmod g+s mydir` will apply SGID to the directory
+      - `chmod +t mydir` assigns sticky bit to the directory
+      - In absolute mode, a four digit number is used, of which the first digit is for the special permissions
+      - `chmod 3770 mydir` assigns SGID and sticky it, as well as rwx for user and group 
+       
 
