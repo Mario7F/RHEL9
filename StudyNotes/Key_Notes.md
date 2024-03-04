@@ -1,6 +1,7 @@
 # Notes From Sander Van Vught RHCSA RHEL 9 Course
 
 ### Lesson 4 Exploring The Essential Tools
+  #### 4.2 Finding the man page
  - `man` is the best source to get extensive usage information
    - Sections define command types
    - Many `man` pages have examples
@@ -8,7 +9,24 @@
  - Other documentation solutions are available, but not as important
    - GNU software has full documentation available through `info`
    - `pinfo` is an easier interface to navigate than `info`
- -
+   #### 4.3 Using an Editor
+ - All `man` pages are indexed in the mandb
+ - Use `man -k` or `apropos` to search the mandb based on a keyword
+ - A lot results can show, use `grep` to filter the results
+ - Manually Trigger a rebuild using `sudo mandb`
+
+  #### 4.4 Understanding vim
+ - `vi` was released in 1976 as a scxreen-oriented editor for the operating system
+ - `vim` is the improved version `vi` and has replaced the original `vi` command
+ - As command line work in the 1070's was line oreiented, and not screen oriented, `vi` was developed with advanced features to program text file modifications
+ - Because of these advanced features, `vim` is still the most commonly used editor
+ - Best practice: Use `nano` to edit text files in an easy way, use `vim` if you want to get respect in the Linux Community
+ - Command mode is the default mode after opening
+   - Use command mode to enter editing commands
+   - Get to command mode by pressing the `Esc` key
+ - Insert mode is where you can enter text
+   - Press `i` to enter insert mode
+   - After inserting text, don't forget to get back to command mode to save your text and exit
 
 
 ### Lesson 5 Understanding The Bash Shell
