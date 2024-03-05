@@ -79,12 +79,29 @@
 - Double quotes suppress globbing and shell expansion but do allow command and variable substitution
   - Single quotes take away the special meaning of any characters
   - Backslash protects the following charcter only from expansion
-- #### 5.6 Applying Variables
-- #### 5.7 Using alias
-- #### 5.8 Tuning The Bash Environment
-- 
--
--
+ #### 5.6 Applying Variables
+- Variables are used to seperate site-specific data from generic code
+- The shell comes with standard system variables in the environment
+- Type `env` to show the current value of the environment
+- Users can define variables using `[export] key=value`, defining my own variable example `export color=red`
+- Defining your own variables is mainly useful in scripting
+- To make variables persistent, they should be stored in the startup files
+  
+ #### 5.7 Using alias
+- `alias` can be used to define custom commands
+- Some commands define as an alias are provided as system default
+- Type `alias` for an overview of all current aliasses
+- Use `alias key=value` to define your own alias
+   - `alias del=rm -rf /tmp`
+- Use `unalias` to remove an alias
+- Custom aliasses are stored in the Bash startup files
+  
+ #### 5.8 Tuning The Bash Environment
+- /etc/profile is the generic Bash startup file containing all system
+- /etc/bashrc if processed while opening a subshell
+- ~/.bash_profile is the user-specific version of /etc/profile
+- ~/.bashrc is the user-specific version of /etc/bashrc
+- Use custom startup files to make settings like variables and alias persistent
 ### Lesson 6 Using The Essential File Management Tools
 -
 -
