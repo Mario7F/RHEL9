@@ -102,9 +102,56 @@
 - ~/.bash_profile is the user-specific version of /etc/profile
 - ~/.bashrc is the user-specific version of /etc/bashrc
 - Use custom startup files to make settings like variables and alias persistent
+  
 ### Lesson 6 Using The Essential File Management Tools
--
--
+
+ #### 6.1 Exploring the Filesystem Hierarchy
+- Directory usage on Linux is highly standadized
+- Standard directories are defined in the Filesystem Hierarchy Standard (FHS), which is maintained by Linux Foundation: https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html
+- The starting point of the filesystem is the root directory
+- Different devices may be integrated in the filesystem by using mounts
+  
+ #### 6.2 Using Essential File Management Commands
+- `ls` list files
+- `mkdir` make a directory
+- `cp` copy files
+- `mv` move files
+- `rmdir` remove an empty directory
+- `rm` remove files
+  
+- #### 6.3 Finding Files
+- `which` looks for binaries in $PATH
+- `locate` uses a database, building by `updatedb` to find files in a database
+- `find` is the most flexible tool that allows you to find files based on many criteria
+  
+ #### 6.4 Mounting Filesystems
+- To access a device, it must be connected to a directory
+- This is known as mounting the device
+- The Linux filesystem typically are on different devices for multiple reasons
+  - security
+  - manageability
+  - specific mount options
+- To mount a device, use `mount /dev/devicename /directory`
+- - `mount /dev/sdb1 /mnt`
+- The `findmnt` command shows all currently mounted devices and their place in the filesystem
+  
+ #### 6.5 Using Links
+- Links are pointers to files in a different location
+- Compare to shortcuts on other operating systems
+- Link can be useful to make the same file available on multiple locations
+- Linux uses hard links and symbolic links
+- Create hard links with `ln` and symbolic links with `ln -s`
+  
+- #### 6.6 Archiving Files
+- `tar` is the Tape Archiver and was created a long time ago
+- By default, it doesn't compress data
+- Basic use is to compress, extract, or list
+- - `tar -cvf my_archive.tar /home/etc`
+  - `tar -tvf` will show contents of an archive
+  - `tar -xvf my_archive` extracts to the current directory
+- To add compression, use `-z`, `-j` or `-J`
+
+- #### 6.7 Working with Compressed Files
 -
 ### Lesson 7 Managing Text Files
 -
