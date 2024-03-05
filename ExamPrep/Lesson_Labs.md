@@ -27,6 +27,9 @@
 
  ![Screen Shot 2024-03-05 at 7 45 25 AM](https://github.com/Mario7F/RHEL9/assets/59115100/6c5496bd-31f3-453d-a32f-35a147d3ae52)
 
+ ### Lesson 6 Lab
+ -
+
 ### Lesson 8 Lab
 
 - Use `useradd linda` to create a user linda
