@@ -43,7 +43,21 @@
 
 
 ### Lesson 5 Understanding The Bash Shell
--
+   #### 5.1 Using I/O Redirection and Piping
+- Redirection uses STDIN, STDERR and STDOUT to work with command input and ouput in a flexible way
+   - `>`
+  - `>>`
+  - `2>/dev/null` (redirect error messages)
+- In piping, the STDOUT of the first command is used as STDIN of the second command
+  
+- #### 5.2 Exploring History
+- #### 5.3 Using Keyboard Shortcuts
+- #### 5.4 Introducing Shell Expansion
+- #### 5.5 Escaping Special Characters
+- #### 5.6 Applying Variables
+- #### 5.7 Using alias
+- #### 5.8 Tuning The Bash Environment
+- 
 -
 -
 ### Lesson 6 Using The Essential File Management Tools
