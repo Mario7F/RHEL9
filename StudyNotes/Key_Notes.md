@@ -45,15 +45,40 @@
 ### Lesson 5 Understanding The Bash Shell
    #### 5.1 Using I/O Redirection and Piping
 - Redirection uses STDIN, STDERR and STDOUT to work with command input and ouput in a flexible way
-   - `>`
+   - `>` example using `ls` command to list the directories and use the `>` to create an output for the list, `cat` the output to display the list
   - `>>`
   - `2>/dev/null` (redirect error messages)
 - In piping, the STDOUT of the first command is used as STDIN of the second command
   
-- #### 5.2 Exploring History
+ #### 5.2 Exploring History
+- Bash registers recently used commands
+- Type 'history' for an overview
+- Commands are kept in ~/.bash_history to make them available beyond sessions
+- The `HISTSIZE` and `HISTFILESIZE` variables are used to define the number of entries kept in history
+- `history -w` synchronizes the current history from memory to history file
+- `history -c` clears current history, don't forget to also use `history -w` when you want to remove everything
+- `history -d nn` removes line `nn` from current history
+
 - #### 5.3 Using Keyboard Shortcuts
-- #### 5.4 Introducing Shell Expansion
-- #### 5.5 Escaping Special Characters
+- 
+ #### 5.4 Introducing Shell Expansion
+- Shell expansion allows for more efficient command line use
+- Globbing expands filenames based on wildcards
+  - `ls*`
+  - `ls a?*`
+  - `ls [a-e]*`
+- Other types of expansion also exist
+  - Brace expansion: touch file{1..9}, useradd {lisa,linda,anna}
+  - Tilde expansion: cd ~
+  - Command substitution: ls -l $(which ls)
+  - Variable substitution: `echo $PATH`
+    
+ #### 5.5 Escaping Special Characters
+- In expansion, special characters are interpreted by the shell to attribute a special meaning to the variables
+- In escaping, this special meaning is taken away
+- Double quotes suppress globbing and shell expansion but do allow command and variable substitution
+  - Single quotes take away the special meaning of any characters
+  - Backslash protects the following charcter only from expansion
 - #### 5.6 Applying Variables
 - #### 5.7 Using alias
 - #### 5.8 Tuning The Bash Environment
