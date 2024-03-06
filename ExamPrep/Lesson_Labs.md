@@ -15,9 +15,9 @@
  ![Screen Shot 2024-03-04 at 2 25 03 PM](https://github.com/Mario7F/RHEL9/assets/59115100/ee96ac8d-4020-4498-9e5e-944bc79d5854)
 
  ### Lesson 5 Lab
- -Set a variable `color` to the value `red` and ensure that this setting is available every time your currrent user account logs in
- -Also create an alias that runs the command `ls -ltr` while executing the `dir` command
- -Ensure that the Bash History file can grow to a maximum size of 2500 entries
+ - Set a variable `color` to the value `red` and ensure that this setting is available every time your currrent user account logs in
+ - Also create an alias that runs the command `ls -ltr` while executing the `dir` command
+ - Ensure that the Bash History file can grow to a maximum size of 2500 entries
 
  ![Screen Shot 2024-03-05 at 7 00 09 AM](https://github.com/Mario7F/RHEL9/assets/59115100/69c5c3ed-3175-499b-aad5-840773c990c4)
 
