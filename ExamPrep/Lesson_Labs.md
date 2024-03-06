@@ -28,9 +28,17 @@
  ![Screen Shot 2024-03-05 at 7 45 25 AM](https://github.com/Mario7F/RHEL9/assets/59115100/6c5496bd-31f3-453d-a32f-35a147d3ae52)
 
  ### Lesson 6 Lab
- - Use `tar` to create a compressed archive of all files in the /etc and /pot directories. Write this archive to your home directory
+ - Use `tar` to create a compressed archive of all files in the /etc and /opt directories. Write this archive to your home directory
  - Create a symbolic link to the archive you've just created in the /tmp directory
  - Remove the archive from your home directory.
+
+  ![Screen Shot 2024-03-06 at 11 21 16 AM](https://github.com/Mario7F/RHEL9/assets/59115100/e612b9bf-ca13-402c-b6d8-32cb0e662912)
+
+  ![Screen Shot 2024-03-06 at 11 26 03 AM](https://github.com/Mario7F/RHEL9/assets/59115100/272c0cda-2202-4cbb-b100-7041032a63ee)
+
+  ![Screen Shot 2024-03-06 at 11 23 18 AM](https://github.com/Mario7F/RHEL9/assets/59115100/235f9701-7cb1-4b13-9870-23fe93478f01)
+
+  ![Screen Shot 2024-03-06 at 11 24 58 AM](https://github.com/Mario7F/RHEL9/assets/59115100/f750aad9-9748-4d21-ae5c-b0728acc56da)
 
 ### Lesson 8 Lab
 
