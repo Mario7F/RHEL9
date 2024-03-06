@@ -40,6 +40,13 @@
 
   ![Screen Shot 2024-03-06 at 11 24 58 AM](https://github.com/Mario7F/RHEL9/assets/59115100/f750aad9-9748-4d21-ae5c-b0728acc56da)
 
+  ### Lesson 7 Lab
+  - Use `head` to show the first 10 lines of a text file
+  - Use `tail` to show the last 10 lines
+  - Use `[-n ]nn` to specify another number of lines
+  - 
+  
+
 ### Lesson 8 Lab
 
 - Use `useradd linda` to create a user linda
