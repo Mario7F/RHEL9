@@ -41,10 +41,12 @@
   ![Screen Shot 2024-03-06 at 11 24 58 AM](https://github.com/Mario7F/RHEL9/assets/59115100/f750aad9-9748-4d21-ae5c-b0728acc56da)
 
   ### Lesson 7 Lab
-  - Use `head` to show the first 10 lines of a text file
-  - Use `tail` to show the last 10 lines
-  - Use `[-n ]nn` to specify another number of lines
-  - 
+  - Use `head` and `tail` to display the fifth line of the file /etc/passwd
+  - Use `sed` to display the fifth line of the file /etc/passwd (-n 5p)
+  - Use `awk` in a pipe to filter the last column out of the results of the command `ps aux` {print $NF}'
+  - Use `grep` to show the names of all files in /etc that have lines that contains the text "root" as a word
+  - Use `grep` to show all lines from all files in /etc that contain exactly 3 characters
+  - Use `grep` to find all files that contain the string "alex", but make sure that "alexander" is not included in the result
   
 
 ### Lesson 8 Lab
