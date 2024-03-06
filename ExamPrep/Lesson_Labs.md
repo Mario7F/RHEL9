@@ -28,7 +28,9 @@
  ![Screen Shot 2024-03-05 at 7 45 25 AM](https://github.com/Mario7F/RHEL9/assets/59115100/6c5496bd-31f3-453d-a32f-35a147d3ae52)
 
  ### Lesson 6 Lab
- -
+ - Use `tar` to create a compressed archive of all files in the /etc and /pot directories. Write this archive to your home directory
+ - Create a symbolic link to the archive you've just created in the /tmp directory
+ - Remove the archive from your home directory.
 
 ### Lesson 8 Lab
 
