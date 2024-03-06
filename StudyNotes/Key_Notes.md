@@ -146,17 +146,38 @@
 - `tar` is the Tape Archiver and was created a long time ago
 - By default, it doesn't compress data
 - Basic use is to compress, extract, or list
-- - `tar -cvf my_archive.tar /home/etc`
+- - `tar -cvf my_archive.tar /home/etc` to create a tar file
   - `tar -tvf` will show contents of an archive
   - `tar -xvf my_archive` extracts to the current directory
 - To add compression, use `-z`, `-j` or `-J`
 
-- #### 6.7 Working with Compressed Files
--
 ### Lesson 7 Managing Text Files
--
--
--
+
+#### 7.1 Exploring Common Text Files
+
+- Use `head` to show the first 10 lines of a text file
+- Use `tail` to show the last 10 lines
+- Use `[-n ]nn` to specify another number of lines
+- `cat` dumps text file contents on screen
+
+#### 7.2 Using Grep
+- `grep` is excellent to find text in files or in output
+
+#### 7.3 Applying Regular Expressions
+- Regular Expressions are text patterns that are used by tools like grep and others
+- Alaways put your regex between single quotes!
+- Don't confuse regular expressions with globbing (shell wildcards)!
+- For use with specific tools only (`grep`, `vim` , `awk` and `sed`)
+- See `man 7 regex` for details
+
+#### 7.4 Exploring awk
+-`awk` is a powerful text processing utility that is specialized in data extraction and reporting
+- It can perform actions based on selections
+
+#### 7.5 Using sed
+- `sed` is the stream editor, used to search and transform text
+- It can be used to search for text, and perform an operation on matching text
+
 ### Lesson 8 Using Root Privileges 
 
 #### 8.1 Understanding the root User
