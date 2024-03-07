@@ -47,6 +47,15 @@
   - Use `grep` to show the names of all files in /etc that have lines that contains the text "root" as a word
   - Use `grep` to show all lines from all files in /etc that contain exactly 3 characters
   - Use `grep` to find all files that contain the string "alex", but make sure that "alexander" is not included in the result
+
+![Screen Shot 2024-03-07 at 8 38 28 AM](https://github.com/Mario7F/RHEL9/assets/59115100/a8f4970e-9ba0-4225-bda5-f90b68882277)
+
+![Screen Shot 2024-03-07 at 8 41 27 AM](https://github.com/Mario7F/RHEL9/assets/59115100/cb05cb25-6a99-44ab-9060-0c3bcb20873d)
+
+![Screen Shot 2024-03-07 at 8 45 04 AM](https://github.com/Mario7F/RHEL9/assets/59115100/e4524402-8973-4bd1-8233-6103d91f756c)
+
+![Screen Shot 2024-03-07 at 8 46 04 AM](https://github.com/Mario7F/RHEL9/assets/59115100/8179591c-2630-454b-8dff-0c9e86977e33)
+
   
 
 ### Lesson 8 Lab
