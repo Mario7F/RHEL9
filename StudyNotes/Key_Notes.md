@@ -416,4 +416,20 @@
        - provides a gui to edit connection (profile name, device, IP configuration, gateway, dns server)
        - Make sure you select the automatically connect
        - After configuring the network configuration, activation the connection (press enter to activate)
+   
+    #### 11.9 Troubleshooting Networking
+       - Use `ping` to verify connectivity
+         - `ping -c 4 myserver` sends 4 packets and then stops
+         - `ping6 2001::210` uses ping6
+       - When using `ping6` on link-local addresses, you must include the NIC name in the command
+   
+    ##### Troubleshoot Routing
+       - `ip route` prints the routing table
+       - `ip -6 route` shows the IPv6 routing table
+       - `tracepath example.com` shows the entire networking path
+       - `tracepath6 example.com` does the same for an IPv6 path (if existing)
+       - `ss` is used to analyze socket statistics (replacement for netstat)
+         - ss -tu
+         - ss -tuna
+         - ss -tunap
 
