@@ -328,4 +328,92 @@
         - Set user-specific overrides in ~/.bashrc
       - Default permissions for file are 666
       - Default permissions for directory are 777
+   
+    #### 11.1 Understanding IPv4 Networking
+       - In IPv4, each node needs its own IP address, written in dotted decimal notation (192.168.4.200/24)
+       - Each IP address must be indicated with the subnet mask behind it
+       - The default router or gateway specifies which server to forward packets to that have an external destination
+       - The DNS nameserver is the IP address of a server that helps to resolve names to IP address and the other way around
+       - IPv4 is still the most common IP version, but IPv6 addresses can be used as well
+       - IPv6 addresses are written in hexadecimal notation (fd01::8eba:210)
+       - IPv4 and IPv6 can co-exist on the same network interface
+     
+    #### 11.2 Exploring IPv6 Networking
+       - IPv6 was introducted in the 1990's to overcome the shortage of world-wide unique IPv4 addresses
+       - IPv6 is used extensively by ISP to address the core internet infrstructure
+       - End-users and companies mostly use IPv4 behind a NAT router
+       - Red Hat Enterprise Linux offers dual stack IPv4 and IPv6
+   
+    #### 11.3 Understanding NIC Naming
+    - Device Names
+      - IP address configuration needs to be connected to a specific network device
+      - Use `ip link show` to see current devices, and `ip addr show` to check their configuration
+      - Every system has an Io device, which is for internal networking
+      - Apart from that, you'll see the name of the real network device, which is presented as a BIOS name
+    
+    -BIOS Device Names
+       - Classical naming is using device names like etho0, eth1 and so on
+         - These device names don't reveal anyi information about physical device location
+       - BIOS naming is based on hardware properties to give more specific information in the device name
+       - - em[1-N] for embedded NICs
+         - eno[nn] for embedded NICs
+         - p<slot>p<port> for NICs on the PCI bus
+       - If the driver doesn't reveal network device properties, classical naming is used
+         
+    #### 11.4 Defining Host Names and Host Name Resolution
+       - `hostnamectl set-hostname` is used to manage hostnames (example to change the hostname "mario.localdomain", use hostnamectl server1.example.com)
+       - The hostname is written to /etc/hostname
+       - Use `hostname` to provide the hostname of the machine
+       - To resolve hostnames /etc/hosts is used (vim /etc/hosts) 
+         - 10.0.0.11 server2example.com server2 (provide IP address to the FQDN) 
+       - /etc/resolv.conf contains DNS client configuration
+       - The order of host name resolution is determined through /etc/nsswitch.conf
+    
+    #### 11.5 Analyzing Network Configuration
+       - The `ip` tool can be used to manage all aspects of IP networking
+       - It replaces the legacy `ifconfig` tool, do not use `ifconfig` anymore
+       - Use `ip addr` to manage address properties
+         - ip addr add dev ens33 10.0.0.10/24 (example, to add a temporary IP address get the get the IP of the device, ip a a dev <device name, found after using `ip a` command> set the IP address you want to assign and netmask (usually /24)
+       - Use `ip link` to show link properties
+         - ip -s link
+       - Use `ip route` to manage route properties
+         - `ip route show` (to show the routing table)
+         - `ip route add` default (or an IP) via 10.0.0.1
+         
+    #### 11.6 Understanding Network Manager
+       - NetworkManager is the systemd service that manages network configuration
+       - Configuration is stored in files in /etc/NetworkManager/system-connections
+         - Legacy files in /etc/sysconfig/network-scripts are still supported but deprecated
+       - Different applications are available to interface with NetworkManager
+         - `nmcli` is a powerful command line utility
+         - `nmtui` offers a convenient text user interface
+         - GNOME offers graphical tools also
+        
+         ##### Connections and Devices
+         - In NetworkManager, devices are network interfaces
+         - Connections are collections of configuration settings for a device, stored in the configuration file in /etc/NetworkManager/system-connections
+         - Only one connection caxn be active for a device
+        
+         ##### NetworkManager Permissions
+         -Permissions to modify settings in NetworkManager are applied through `dbus`
+         - Non-privileged users that are logged in on the console can change network settings
+         - Non-privileged users that are logged in through `ssh` cannot
+         - Use `nmcli general permissions` for an overview of current permissions that apply
+    
+    #### 11.7 Managing Persistent Network Configuration with nmcli
+       - `nmcli` has awesome tab completion
+       - `nmcli con show` shows current connections
+       - `nmcli dev status` shows current network devices
+       - `nmcli con add on-name mynewconnection ifname ens33 ipv4.addresses 10.0.0.10/24 ipv4.gateway 10.0.0.1 ipv4.method manual type ethernet` will add a new connection
+       - `nmcli con up mynewconnection` will activate the new connection
+       - `nmcli con show mynewconnection` shows all connection settings (helps to analyze issue)
+       - `nmcli con mod` will modify connection settings: use tab completion
+       - `nmcli con reload` will reload the modified connection
+       - Use `ipv4.method manual` on connections that don't use DHCP
+         
+    #### 11.8 Managing Persisten Network Configuration with nmtui
+       - Use for exam, use the `nmtui` command
+       - provides a gui to edit connection (profile name, device, IP configuration, gateway, dns server)
+       - Make sure you select the automatically connect
+       - After configuring the network configuration, activation the connection (press enter to activate)
 
