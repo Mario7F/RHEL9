@@ -116,3 +116,10 @@
 - ![Screen Shot 2024-03-04 at 8 34 55 AM](https://github.com/Mario7F/RHEL9/assets/59115100/4b30bbce-a98d-479b-83f4-fa6eb9f18464)
 
 - ![Screen Shot 2024-03-04 at 8 37 45 AM](https://github.com/Mario7F/RHEL9/assets/59115100/5b753bf3-ff96-446e-9527-01f842d1d5c9)
+
+  ### Lesson 11 Lab
+  - Set the hostname for your server to rhcsaserver.example.com
+  - Set your server to a fixed IP address that matches your current network configuration
+  - Also set a second IP address 10.0.0.10/24 on the same network interface
+  - Enable host name resolution for your local server hostname
+  - Reboot and verify your network is still working with the new settings
