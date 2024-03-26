@@ -123,3 +123,26 @@
   - Also set a second IP address 10.0.0.10/24 on the same network interface
   - Enable host name resolution for your local server hostname
   - Reboot and verify your network is still working with the new settings
+ 
+  - ![Screen Shot 2024-03-26 at 6 09 35 AM](https://github.com/Mario7F/RHEL9/assets/59115100/09c8bf18-c260-4b3a-a1f2-6878be333864)
+ 
+  - ![Screen Shot 2024-03-26 at 6 07 37 AM](https://github.com/Mario7F/RHEL9/assets/59115100/88d53b3e-4dc8-4422-a41c-2b3687051aba)
+ 
+  - ![Screen Shot 2024-03-26 at 6 08 44 AM](https://github.com/Mario7F/RHEL9/assets/59115100/bd651caf-f0c6-44fe-9553-13ecae69574f)
+ 
+  - ![Screen Shot 2024-03-26 at 6 10 35 AM](https://github.com/Mario7F/RHEL9/assets/59115100/20c0a55c-e0cb-4653-bd23-517d10762f17)
+ 
+  - ![Screen Shot 2024-03-26 at 6 11 06 AM](https://github.com/Mario7F/RHEL9/assets/59115100/797fb856-9212-4f3d-94ea-82d0f62578a0)
+ 
+  - ![Screen Shot 2024-03-26 at 6 12 00 AM](https://github.com/Mario7F/RHEL9/assets/59115100/456bdbfa-5323-4304-8bfd-515a0d1c44b1)
+ 
+  - ![Screen Shot 2024-03-26 at 6 19 54 AM](https://github.com/Mario7F/RHEL9/assets/59115100/4d8d51c9-000d-453d-83ba-e5e9ec0697e4)
+ 
+  - ![Screen Shot 2024-03-26 at 6 21 13 AM](https://github.com/Mario7F/RHEL9/assets/59115100/022022b1-7554-4583-af0f-e23e5a2d975b)
+ 
+  - ![Screen Shot 2024-03-26 at 6 23 25 AM](https://github.com/Mario7F/RHEL9/assets/59115100/3ee69ede-4e1d-4197-8694-67eb97967ca4)
+ 
+  - ![Screen Shot 2024-03-26 at 6 26 00 AM](https://github.com/Mario7F/RHEL9/assets/59115100/c5d1027e-17d5-4c89-a02e-cf7ab2d60c8c)
+
+
+
