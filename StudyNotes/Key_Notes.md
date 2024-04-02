@@ -433,3 +433,55 @@
          - ss -tuna
          - ss -tunap
 
+  ### Lesson 12 Managing Software 
+  
+  #### 12.1 Understanding RPM Packages
+  
+   - Software on RHEL is installed using packages Red Hat Package Manager (RPM) format
+     - An RPM package contains a compressed archive, as well as package metadata
+     - In the metadata, package dependencies are identified
+     - To handle dependency management, RHEL uses repositories for package installation
+     - If a dependency was found, it is installed automatically from the repository
+     - Installed packages are registered in the RPM database
+
+  ##### Managing RPM Packages
+    
+   - The `rpm` command can be used for some package management tasks
+     - Some commands query the RPM database
+       - `rpm -qa` shows all packages that are currently installed
+       - `rpm -qf filename` shows from which package filename was installed
+       - `rpm -ql` list files installed from a package
+       - `rpm -q --scripts` shows scripts executed while installing the package
+       - `rpm -q --changelog` shows the change log for a package
+
+       ##### Extracting RPM Packages
+       - Contents of an RPM package can be extracted to the current directory (without installing)
+       - `rpm2cpio mypackage-1.0.rpm | cpio -tv` will show the content a package
+       - `rpm2cpio my package-1.0.rpm` | cpio -idmv` extracts the packages contents to the current directory
+
+     #### 12.2 Setting Up Repository Access
+
+     - A repository is a collection of RPM package files with an index that contains the repository contents
+     - Repositories are often offered through web sites, but local repositories can be created also
+     - The `dnf` command is used as the default command to install packages from repositories
+     - In RHEL 9, `dnf` is preferred over `yum` command which was used in previous versions of RHEL
+     - `dnf` and `yum` are offering the same functionality
+
+      #### Accessing Repositories
+     - To access repositories, a RHEL system must be registered using `subscription-manager`
+     - `subscription-manager` tries to access the online Red Hat Repositories
+     - As an alternative to online repositories, repositories can be offered through Red Hat Satellite
+     - If no Internet connection, nor Red Hat Satellite are available, no repositories will be available by default
+     - In that case, you'll have manually configured repository access
+    
+     #### Manually Configuring Repository Access
+     - To access repositories that are offered through subscription manager, use `dnf config-manager --enable name-of-the-repository` to add repository access
+     - Third party repositories can be added using a repo file in `/etc/yum.repos.d/, or using `dnf config-manager`
+     - `dnf config-manager --add-repo="file:///repo/AppStream"
+     - `cat>> /etc/yum.repos.d/AppStream.repo << EOF
+       > [AppStream]
+       > name=AppStream
+       > baseurl=file:///repo/AppStream
+       > gpgcheck=0
+       EOF
+     
