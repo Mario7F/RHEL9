@@ -145,4 +145,9 @@
   - ![Screen Shot 2024-03-26 at 6 26 00 AM](https://github.com/Mario7F/RHEL9/assets/59115100/c5d1027e-17d5-4c89-a02e-cf7ab2d60c8c)
 
 
+### Lesson 12 Lab: Managing Software
+- Ensure your system is using a repository for base packages as well as application streams
+- Find the package that contains the seinfo program file and install it
+- Download the httpd package from the repositories without installing it, and query to see if there are any scripts in it
 
+- 
