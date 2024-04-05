@@ -484,4 +484,64 @@
        > baseurl=file:///repo/AppStream
        > gpgcheck=0
        EOF
-     
+
+     #### 12.3 Managing Packages with dnf
+     - `dnf` was created to be intuitive
+         - `dnf list` lists installed and available packages
+         - `dnf list "selinx*"` to show the selinux packages installed
+     - 'dnf search' searches in name and summary. Use `dnf search all` to search in description as well
+     -  - `dnf search seinfo`
+        - `dnf search all seinfo`
+     - 'dnf provides' searches in package file lists for the package that provides a specific file
+         - `dnf provides */Containerfile`
+     - `dnf info` shows information about the package
+     - `dnf install` installs packages as well as anay dependencies
+     - `dnf remove` removes packages, as well as packages depending on this packages - potentially dangerous
+     - `dnf update` compares current package version with the package version listed in the repository and updates if necessary
+        - `dnf update kernel` will install the new kernel and keeps the old kernel as a backup
+      
+     #### 12.4 Using dnf Groups
+     - A `dnf group` is a colletion of packages
+     - A regular group is just a collection of packages
+     - An environment group is used to install a specific usage pattern, ad may consist of packages and groups
+     - Use `dnf group list` to see a list of groups
+     - Some groups are normally only installed through environment groups and not seperately, and for that reason don't show who is using `dnf group list`
+     - Use `dnf group list hidden` to see these groups as well
+     - Use `dnf group info "<groupname>"` to see packages within a group
+     - Packages are marked as mandatory, default, or optional
+     - To install optional packages also, use `dnf group install --with-optional`
+     - As group names often contain spaces, the entire group name must be referred to using double qoutes
+    
+     #### 12.5 Exploring Modules and Application Streams
+     - `dnf` uses modularity, meaning that different versions of the same package can be maintained in the same repository
+     - Modularity is useful for packages that have a lifetime that differs from the core operating system packags
+     - RHEL 9 offers 2 main repositories:
+       - BaseOS has core OS content for RHEL. Packages in BaseOS share the OS lifecycle
+       - AppStream is used for packages that don't have the same lifecycle as RHEL
+       
+     ##### Understanding AppStream Packages
+     - AppStream packages are offered as individual packages or as modules
+     - In RHEL 9.0 no modules are provided by default, they may be offered separately later
+     - In a module, different streams can be offered, where each package version has its own stream
+     - Module, profiles provide common installation patterns, such as server, client and more.
+    
+     #### 12.6 Managing dnf Updates and History
+     - All transaction that `dnf` perform are logged to `/var/log/dnf.rpm.log`
+     - Use `dnf history` for a summary of all installation and removal transactions
+     - Use `dnf history undo n` to undo a specific transaction
+    
+     #### 12.7 Using subscription-manager
+     - To use RHEL, you need to register the system and attach a subscription
+       - Before completing this procedure, you'll have no repository access
+     - To register, use `subscription-manager register`
+       - You'll be prompted for the username of the user account to which the subscription is connected
+     - To attach a subscription, use `subscription-manager attach --auto`
+     - To unregister a system use `subscription-manager unregister`
+    
+     ##### Understanding Entitlement Certificates
+     - After attaching subscriptions to a system, entitlement certificates are created
+     - - `/etc/pki/product` indicates the installed Red Hat products
+       - `/etc/pki/consumer` identifies the Red Hat account for registration
+       - `/etc/pki/entitlement` indicates which subscription is attached
+     - Use `rct` command to check current entitlements
+     - - `rct cat-cert /etc/pki/entitlement/xyxxxyyzzz.pem`
