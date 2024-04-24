@@ -650,4 +650,58 @@
   -  Press `W` to save new display settings
   -  `htop` is a common alternative for `top`, but not installed by default
 
+### Lesson 14 Managing Processes
+
+### 14.1 Using Signals to Manage Process State
+
+  - A signal allows the operating system to interrupt a process from software and ask it to do something
+  - Interrupts are comparable to signals, but are generated from hardware
+  - A limited amount of signals can be used and is documented in `man 7 signals`
+  - Not all signals work in all cases
+  - The `kill` command is used to send signals to PID's
+  - You can also use `k` from top
+  - Different kill-like commands exist, like `pkill` and `killall`
+
+
+### 14.2 Managing Process Priority
+### 14.3 Using Tuned Profiles
+
+#### Understanding System Tuning
+
+- Kernel tunables are provided through the /proc/sys directory in the /proc pseudo file system
+- Different files in the /proc/sys directory contain the current setting as its value
+- Change the current value by echoing a new value into the file:
+  - `cat /proc/sys/vm/swappiness`
+  - `echo 40 > /proc/sys/vm/swamppiness`
+ 
+#### Understanding Tuned
+
+- To make system tuning easier, `tuned` is provided
+- `tuned` is a systemd service that works with different profiles
+- `tuned-adm list` shows current profiles
+- `tuned-adm profile virtual-guest` sets another profile as default
+- Each profile contains a file with the name tuned.conf, that has a wide range of performance related settings.
+- The `reapply_sysctl = 1` parameter in `/etc/tuned/tuned-main.conf` ensures that, in case of contflict, the `sysctl` parameter wins
+
+#### Creating Custom Profiles
+
+- Custom `tuned` profiles are stored as directories in `/etc/tuned`
+- Each profile should have file `tuned.conf`, containing the requested performance settings
+- After creating the directory with the corresponding `tuned.conf`, it will automatically be picked up
+  
+### 14.4 Managing User Sessions and Processes
+
+Using Common Utilities
+
+- Use `ps -u username` to show processes owned by a specific user
+- Use `pkill -u username` to remove processes owned by a specific user
+
+Using loginctl
+
+- `loginctl` is a part of `systemd`, which manages users and sessions
+- One user can have multiple sessions open simultaneously
+- `loginctl list-users` and `loginctl list-sessions` shows users and sessions
+- `loginctl user-status <UID>` shows a tree of processes currently open by this user
+- `loginctl terminate-session` and `loginctl terminate-user` can be used to stop current sessions or users
+
    
