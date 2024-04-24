@@ -154,3 +154,12 @@
 - Create a user linda and open a shell as this user
 - As linda, run two background processes `sleep 600`; one of them with the highest possible priority, the other one with the lowest possible priority
 - Use the most efficient way to terminate all current sessions for user linda
+
+![Screen Shot 2024-04-24 at 4 19 34 PM](https://github.com/Mario7F/RHEL9/assets/59115100/78241599-24bc-41a0-ad35-6cce70bb55f5)
+
+![Screen Shot 2024-04-24 at 4 19 59 PM](https://github.com/Mario7F/RHEL9/assets/59115100/bd64eb85-db17-4ac3-bea0-351b56dcf5af)
+
+
+![Screen Shot 2024-04-24 at 4 22 39 PM](https://github.com/Mario7F/RHEL9/assets/59115100/98bd8788-e767-429f-ba47-0b4ed2fabda1)
+
+
