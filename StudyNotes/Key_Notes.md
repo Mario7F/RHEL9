@@ -570,7 +570,7 @@
 
 #### 13.3 Understanding Process States
 
-#### Understanding Process Running State
+##### Understanding Process Running State
 
   - When a new process is started (forked) it is scheduled and after being scheduled, it will get a runnable state (R).
     - In this state it is waiting in the queue to be scheduled
@@ -579,7 +579,7 @@
     - In that case, they will return to a runnable state and wait in the queue for a new time slice
   - A runnable process can be stopped (ctrl-z) and will show as TASK_STOPPED (T), and after being stopped it can receive another signal to resume and return to a runnable state
 
-#### Understanding Process Waiting States
+##### Understanding Process Waiting States
 
   - While running, the process may have to wait
     - This is also referred to as "blocking" state, but "blocking" is not an offical state in the Linux kernel
@@ -589,12 +589,12 @@
     - TASK_KILLABLE (K): the process is waiting but may be killed
     - TASK_REPORT_IDLE (I): Used for kernel threads, this process will not count for the load average
 
-#### Understanding Exit States
+##### Understanding Exit States
 
   - When a process exits, it will briefly enter the EXIT_ZOMBIE (Z) state. This is where it signals the parent process that it exits and all resources except for the PID are released.
   - In the next stage the process will enter the EXIT_DEAD (X) state. In this state will be reaped and all remaining processes are cleaned up
 
-#### Understanding Zombies
+##### Understanding Zombies
 
 - A process becomes a Zombie when it has completed its task, but the parent process hasn't collected its execution status
 - Zombies are already dead so they can't and don't have to be killed
@@ -618,7 +618,7 @@
  - `ps L` shows format specifiers
  - `ps -eo pid, ppid, user, cmd` uses some of these specifiers to show a list of processes
 
-### 13.5 Understanding Memory Use
+#### 13.5 Understanding Memory Use
 
  - Linux places as many files as possible in cache to guarantee fast access to the files
  - For that reason, Linux memory often shows as saturated
@@ -628,21 +628,21 @@
  - Use `free -m` to get details about current memory usage
  - More detailed memory information is in /proc/meminfo
 
-#### Understanding Write Cache
+##### Understanding Write Cache
 
   - While writing files, a write cache (buffers) is used
   - This write cache is periodically committed to disk by the `pdflush` kernel thread
   - As a result, after committing a file write, it's not immediately secure
   - To ensure that a file is committed to disk immediately, use the `sync` command
 
-### 13.6  Observing CPU Load
+#### 13.6  Observing CPU Load
 
   - CPU load is checked through `uptime`
   - CPU load is expressed as the average number of runnable processes over the last 1, 5 and 15 minutes
   - As a rough guideline, this number should not exceed the number of CPU cores on a system
   - Use `lscpu` to check the number of CPU cores
 
-### 13.7 Monitoring System Activity with top
+#### 13.7 Monitoring System Activity with top
 
   -  `top` is a dashboard that allows you to monitor current system activity
   -  Press `f` to show and select from available display fields
@@ -652,7 +652,7 @@
 
 ### Lesson 14 Managing Processes
 
-### 14.1 Using Signals to Manage Process State
+#### 14.1 Using Signals to Manage Process State
 
   - A signal allows the operating system to interrupt a process from software and ask it to do something
   - Interrupts are comparable to signals, but are generated from hardware
@@ -663,10 +663,36 @@
   - Different kill-like commands exist, like `pkill` and `killall`
 
 
-### 14.2 Managing Process Priority
-### 14.3 Using Tuned Profiles
+#### 14.2 Managing Process Priority
 
-#### Understanding System Tuning
+  Understanding Priortiy Management
+  
+  - Linux Cgroups provide a framework to apply resource restrictions to Linux systems
+  - Cgroups can limit the amount of CPU cycles, available memory, and more
+  - If processes are equal from a perspective of Cgroups, the Linux `nice` and `renice` commands can be used to manage priority
+
+  ##### Understanding Cgroups
+  
+  - In Cgroups, the Linux system is divided in 3 slices
+    - System: all systemd processes
+    - User: all user processes
+    - Machine: Virtual machines and containers
+  - Each clice has an equal CPU weight
+  - That means that if one or more processes within a slice request a maximum amount of CPU cycles, each slice will get an equal amount of CPU shares
+    - So 20 systemd processes together gets as much as one user process that claims full CPU usage!
+  - In systemd, the CPUWeight can be set on individual systemd units
+
+##### Managing nice
+
+ - If no specific Cgroups are defined, Linux `nice` and `renice` can be used to define CPU priority
+ - To change priorities of non-realtime processes, the `nice` and `renice` commands can be used
+ - Nice values range from -20 up to 19
+ - Negative nice value indicates an increased priortiy, a positive nice value indicates decreased priority
+ - Users can be set their processes to a lower priority, to increase priorities you need root access
+   
+#### 14.3 Using Tuned Profiles
+
+##### Understanding System Tuning
 
 - Kernel tunables are provided through the /proc/sys directory in the /proc pseudo file system
 - Different files in the /proc/sys directory contain the current setting as its value
@@ -674,7 +700,7 @@
   - `cat /proc/sys/vm/swappiness`
   - `echo 40 > /proc/sys/vm/swamppiness`
  
-#### Understanding Tuned
+##### Understanding Tuned
 
 - To make system tuning easier, `tuned` is provided
 - `tuned` is a systemd service that works with different profiles
@@ -683,25 +709,33 @@
 - Each profile contains a file with the name tuned.conf, that has a wide range of performance related settings.
 - The `reapply_sysctl = 1` parameter in `/etc/tuned/tuned-main.conf` ensures that, in case of contflict, the `sysctl` parameter wins
 
-#### Creating Custom Profiles
+##### Creating Custom Profiles
 
 - Custom `tuned` profiles are stored as directories in `/etc/tuned`
 - Each profile should have file `tuned.conf`, containing the requested performance settings
 - After creating the directory with the corresponding `tuned.conf`, it will automatically be picked up
   
-### 14.4 Managing User Sessions and Processes
+#### 14.4 Managing User Sessions and Processes
 
-Using Common Utilities
+##### Using Common Utilities
 
 - Use `ps -u username` to show processes owned by a specific user
 - Use `pkill -u username` to remove processes owned by a specific user
 
-Using loginctl
+##### Using loginctl
 
 - `loginctl` is a part of `systemd`, which manages users and sessions
 - One user can have multiple sessions open simultaneously
 - `loginctl list-users` and `loginctl list-sessions` shows users and sessions
 - `loginctl user-status <UID>` shows a tree of processes currently open by this user
 - `loginctl terminate-session` and `loginctl terminate-user` can be used to stop current sessions or users
+
+### Lesson 15 Working With Systemd
+
+#### 15.1 Exploring Systemd Units
+#### 15.2 Managing Systemd Services
+#### 15.3 Modifying Systemd Service Configuration
+#### 15.4 Managing Unit Dependencies
+#### 15.5 Masking Services
 
    
