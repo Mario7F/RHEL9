@@ -150,4 +150,7 @@
 - Find the package that contains the seinfo program file and install it
 - Download the httpd package from the repositories without installing it, and query to see if there are any scripts in it
 
-- 
+### Lesson 14 Lab: Managing Processes
+- Create a user linda and open a shell as this user
+- As linda, run two background processes `sleep 600`; one of them with the highest possible priority, the other one with the lowest possible priority
+- Use the most efficient way to terminate all current sessions for user linda
