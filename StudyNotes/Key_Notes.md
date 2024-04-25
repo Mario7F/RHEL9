@@ -732,10 +732,57 @@
 
 ### Lesson 15 Working With Systemd
 
+
 #### 15.1 Exploring Systemd Units
+
+- Service units are used to start processes
+- Socket units monitor activity on a port and start the corresponding Service unit when needed
+- Timer units are used to start services periodically
+- Path units can start Service units when activity is detected in the file system
+- Mount units are used to mount file systems
+- Other unit types are available, though less relevant for RHCSA
+
+##### Understanding Service Units
+
+- Service units are often used to start daemon processes
+- Other types of Service units are available as well
+  - Type=oneshot can be used to start any command through systemd
+    
 #### 15.2 Managing Systemd Services
+
+- `systemctl status` shows the current status of any unit
+  - `systemctl status sshd`
+- The Active: line in the output shows the current status
+- The Loaded: line in the output shows which configuration is loaded, and whether the unit is enabled for automatic starting
+- Use `systemctl status` to get current status
+- `systemctl start` will start a unit that is not currently active
+- `systemctl stop` will stop the unit
+- `systemctl enable` is used to flag the unit automatic starting upon system start
+- `systemctl disable` is used to flag the unit to be no longer automically started
+- `systemctl reload` will reload the unit configuration without restarting the unit
+- `systemctl restart` restarts the unit after which thee process it manages gets a new PID
+  
 #### 15.3 Modifying Systemd Service Configuration
+
+- Default system-provided systemd unit files are in `/usr/lib/systemd/system
+- Custom unit files are in `/etc/systemd/system`
+- Run-time automatically-generated unit files are in /run/systemd
+- While modifying a unit file, do NOT edit the file in /usr/lib/systemd/system but create a custom file in /etc/systemd/system that is used as an overlay file
+- Better: use `systemctl edit unit.service` to edit unit files
+- Use `systemctl show` to show available parameters
+- Using `systemctl reload` may be required
+  
 #### 15.4 Managing Unit Dependencies
+
+- Systemd units normally depend on other unitis
+- Use `systemctl list-dependencies` for a complete overview of all currently loaded units and their dependencies
+- Use `systemctl list-dependencies UNIT` to see dependencies for any specific unit
+  
 #### 15.5 Masking Services
+
+- Some units cannot work simultaneously on the same system
+- To prevent administrators from accidentally starting these units, use systemctl mask
+- `systemctl mask` links a unit to the /dev/null device, which ensures that it cannot be started
+- `systemctl unmask` removes the unit mask
 
    
