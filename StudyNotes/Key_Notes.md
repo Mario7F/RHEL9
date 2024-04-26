@@ -785,4 +785,11 @@
 - `systemctl mask` links a unit to the /dev/null device, which ensures that it cannot be started
 - `systemctl unmask` removes the unit mask
 
-   
+### Lesson 16: Task Scheduling
+
+#### 16.1 Exploring RHEL Scheduling Options
+#### 16.2 Scheduling Tasks with Systemd Timers
+#### 16.3 Scheduling Tasks with cron
+#### 16.4 Understanding anacron
+#### 16.5 Using at
+#### 16.6 Managing Temporary Files
