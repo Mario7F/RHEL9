@@ -163,3 +163,8 @@
 ![Screen Shot 2024-04-24 at 4 22 39 PM](https://github.com/Mario7F/RHEL9/assets/59115100/98bd8788-e767-429f-ba47-0b4ed2fabda1)
 
 
+### Lesson 15 Lab: Working with Systemd
+
+- Make sure the httpd service is automatically started
+- Edit its configuration such that on failure, it will continue after 1 minute
+
