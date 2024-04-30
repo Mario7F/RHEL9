@@ -971,3 +971,15 @@
 - After rotation, the file is renamed to a file with the rotation date as extension
 - When too many files are rotated, according to the settings, the oldest file will be discarded
 - Log rotation is configured in the files in /etc/logrotate.conf and /etc/logrotate.d/
+
+### Lesson 18: Working with Partions and Mounts
+
+#### 18.1 Understanding Disk Layout
+#### 18.2 Exploring Linux Storage Options
+#### 18.3 Understanding GPT and MBR Partitions
+#### 18.4 Creating Partitions with fdisk
+#### 18.5 Creating and Mounting File Systems
+#### 18.6 Mounting Partitions through /etc/fstab
+#### 18.7 Using UUID and Labels
+#### 18.8 Defining Systemd Mounts
+#### 18.9 Creating a Swap Partition
