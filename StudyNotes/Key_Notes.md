@@ -788,8 +788,159 @@
 ### Lesson 16: Task Scheduling
 
 #### 16.1 Exploring RHEL Scheduling Options
+
+##### RHEL 9 Scheduling Options
+
+- `systemd` timers are the primary solution for scheduling recurring jobs on RHEL 9
+- `crond` is an older scheduling solution which is still supported and a bit easier to schedule custom tasks
+- `at` is available to schedule non-recurring user tasks
+  
 #### 16.2 Scheduling Tasks with Systemd Timers
+
+##### Understanding systemd Timers
+
+- Systemd provides unit.timer files that go together with unit.service files to schedule the service file
+- When using `systemd` timers, the timer should be enabled / started, and NOT the service unit
+- `systemd` timers are often installed from RPM packages
+- In the timer unit file, the `OnCalendar` option specifies when the service should be started
+- On RHEL 9, `systemd` timers are the default way for scheduling recurring services
+
+##### Understanding Timer Activation
+
+- The `systemd` timer `OnCalendar` option uses a rich language to express when the timer should activate
+- Use `OnUnitActivateSec` to start the unit a specific time after the unit was last activated
+- Use `OnBootSec` or `OnStartupSec` to start the unit a specific time after booting
+- Read `man 7 systemd-time` for specification of the time format to be used
+  
 #### 16.3 Scheduling Tasks with cron
+
+##### Understanding cron
+
+- `cron` is an old UNIX scheduling option
+- It uses `crond` , a daemon that checks its configuration to run cron jobs periodically
+- Still on RHEL 9, `crond` is enabled as a `systemd` service by default
+- Most services that need scheduling are scheduled through `systemd` timers
+
+##### Using Cron
+
+- The `cron` service checks its configuration every minute
+- `/etc/crontab` is the main (managed) configuration file
+- `/etc/cron.d/` is used for drop-in files
+- `/etc/cron.{hourly, daily, weekly, monthly}` is used as a drop-in for scripts that need to be scheduled on a regular basis
+  - Make sure these scripts have the execute bit set!
+- User specific cron jobs can be created using `crontab -e`
+
+##### Understanding Cron Time Specification
+
+- Cron time specifications are specified as minute, hour, day of month, month, day of week
+- `0**dec 1-5` will run a cron job every monday thru friday on minute zero in December
+- The /etc/crontab file has a nice syntax example
+- Do NOT edit /etc/crontab, put drop-in files in /etc/cron.d instead
+  
 #### 16.4 Understanding anacron
+
+- `anacron` is a service behind `cron` that ensures that jobs are executed on a regular basis, but not at a specific time
+- It takes care of the jobs in /etc/cron.{hourly,daily,weekly,monthly}
+- Configuration is in /etc/anacrontab
+- Don't change anything in /etc/anacrobtab, use `systemd` timers instead
+  
 #### 16.5 Using at
+
+- The `atd` service must be running to run once-only jobs using `at`
+- Use `at <time>` to schedule a job
+  - Type one or more job specifications in the at interactive shell
+  - Use Ctrl-D to close this shell
+- Use `atq` for a list of jobs currently scheduled
+- Use `atrm` fto remove jobs from the list
+
 #### 16.6 Managing Temporary Files
+
+##### Understanding Temporary Files
+
+- In the past, temporary files were created in the /tmp directory
+- Without management, these files could stay around for a long time
+- As a solution, the /tmp directory could be created on a RAM drive
+- Nowadays, `systemd-tmpfiles` is started while booting, and manages temporary files and directories
+- It will create and delete tmp files automatically, according to the configuration files in the following locations:
+  - /usr/lib/tmpfiles.d/
+  - /etc/tmpfiles.d/
+  - /run/tmpfiles.d/
+
+##### Understanding systemd-tmpfiles
+
+- `systemd-tmpfiles` works with related services to manage temporary files
+- `systemd-tmpfiles-setup.service` creates and removes temporary files according to the configuration
+- `systemd-tmpfiles-clean.timer` calls the `systemd-tmpfiles-clean.service` to remove temporary files
+  - By default 15 minutes after booting
+  - And also on daily basis
+
+##### Managing Temporary Files
+
+- In the configuration files, specify what to do with temporary files
+  - `d /run/myfiles 0750 root root` - will create the directory /run/myfiles if necessary. No action if it already exists
+  - `D /run/myfiles 0750 root root 1d` will create the directory if necessary, and wipe its contents if it already exists. Files older than 1 day are eligible for automatic removal
+- `man tmpfiles.d` provides detailed information and examples
+
+### Lesson 17 Configuring Logging
+
+#### 17.1 Exploring RHEL Logging Options
+
+- `systemd-journald` is receiving log messages from different locations
+  - The kernel
+  - Early boot procedure
+  - Syslog events
+  - Standard output and error from daemons
+- The systemd journal is non-persistent by default
+- The `rsyslog` service reads syslog messages and writes them to different locations
+  - Files in /var/log
+  - According to output modules
+- Services may also write to /var/log
+  
+#### 17.2 Using systemd-journald
+
+##### Viewing Systemd Journal Messages
+
+- `systemctl status name.unit` provides easy access to the last messages that have been logged for a specific service
+- `journalctl` prints the entire journal
+- - Important messages are shown in red
+- `journalctl -p err` shows only messages with a priority error and higher
+- `journalctl -f` shows the last 10 lines, and add new messages while they are added
+- `journalctl -u sshd. service` shows messages for sshd.service only
+- `journalctl --since "-1 hour"; journalctl --since today` allows time specification
+- `journalctl -o verbose` adds verbose messages
+
+##### Viewing Boot Logs
+
+- `journalctl -b` shows the current boot log
+- `journalctl -xb` adds explanation texts to the boot log messages
+- `journalctl --list-boots` shows all boots that have been logged (on persistent journal only)
+- `journalctl -b 3` shows messages from the third boot log only
+  
+
+#### 17.3 Preserving the Systemd Journal
+
+##### The Need for Persistency
+
+- The systemd journal is non-persistent
+- Persistency is taken care of by the rsyslog service
+- Rsyslog offers all the filtering you need to fine-tune log persistency
+- If desired, the systemd journal can be made persistent as well
+
+##### Making the Journal Persistent
+
+- Systemd journal settings are in /etc/systemd/journal.conf
+- The setting `Storage=auto` ensures  that persistent storage is happening automatically after creating the directory /var/log/journal
+- Other options are:
+  - persistent: stores journals in /var/log/journal
+  - volatile: stores journals in the temporary /run/log/journal directory
+  - none: doesn't use any storage for the journal at all
+
+##### Managing Persistent Journal Size
+
+- In journal.conf, default settings apply to ensure that the journal can't grow in an unlimited way
+- - Log ration triggers monthly
+  - No more than 10% of the file system size can be used
+  - No more than 15% of the file systemfree size can be used
+- Use `journalctl | grep -E 'Runtime Journal | System Journal` to check current settings
+#### 17.4 Configuring rsyslogd
+#### 17.5 Using logrotate
