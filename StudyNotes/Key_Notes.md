@@ -943,4 +943,31 @@
   - No more than 15% of the file systemfree size can be used
 - Use `journalctl | grep -E 'Runtime Journal | System Journal` to check current settings
 #### 17.4 Configuring rsyslogd
+
+##### Understanding Rsyslog
+
+- Rsyslog needs the `rsyslogd` service to be running
+- The main configuration file is /etc/rsyslog.conf
+- Snap-in files can be place in /etc/rsyslog.d/
+- Each logger line contains three items
+  - facility: the specific facility that the log is created for
+  - severity: the severity from which should be logged
+  - destination: the file or other destination the log should be written to
+- Log files normally are in /var/log
+- Use the `logger` command to write messages to rsyslog manually
+
+##### Understanding Facilities
+
+- `rsyslogd` is and must be backwards compatible with the ancient syslog service
+- In syslog, a fixed number of facilities was defined, like kern, authpriv, cron, and more
+- To work with services that don't have their own facility local{0..7} can be used
+- Because of the lack of facilities, some services take care of their own logging and don't use rsyslog
+  
 #### 17.5 Using logrotate
+
+##### Understanding logrotate
+
+- The `logrotate` command is started by a systemd timer to prevent them from growing too big
+- After rotation, the file is renamed to a file with the rotation date as extension
+- When too many files are rotated, according to the settings, the oldest file will be discarded
+- Log rotation is configured in the files in /etc/logrotate.conf and /etc/logrotate.d/
