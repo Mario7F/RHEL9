@@ -168,3 +168,8 @@
 - Make sure the httpd service is automatically started
 - Edit its configuration such that on failure, it will continue after 1 minute
 
+### Lesson 15 Lab: Running Schedule Jobs
+
+- Ensure the systemd timer that cleans up tmp files is enabled
+- Run a cron job that will issue the command `touch /tmp/cronfile` 5 minutes from now
+- Use `at` to schedule a job to power off your system at a convenient time later today
