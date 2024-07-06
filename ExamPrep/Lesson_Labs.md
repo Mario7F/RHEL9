@@ -177,3 +177,15 @@
 ### Lesson 27 Lab: Configuring a Firewall
 
 - Configure `firewalld` such that remote access to the SSH and FTP processes is allowed. Make sure the configuration is applied immediately as well as persistently.
+
+![Screen Shot 2024-07-06 at 12 37 16 PM](https://github.com/Mario7F/RHEL9/assets/59115100/49ee5309-6488-448d-ae2b-033e7b8d2824)
+
+
+![Screen Shot 2024-07-06 at 12 35 23 PM](https://github.com/Mario7F/RHEL9/assets/59115100/b319756d-2059-435a-bdfc-ec63982734e5)
+
+
+![Screen Shot 2024-07-06 at 12 40 57 PM](https://github.com/Mario7F/RHEL9/assets/59115100/9a4c79ad-ba5d-4968-a0ae-d6ce8a5ccd45)
+
+
+![Screen Shot 2024-07-06 at 12 42 17 PM](https://github.com/Mario7F/RHEL9/assets/59115100/f3b5f880-0a55-491a-9d34-e6dc9797f090)
+
