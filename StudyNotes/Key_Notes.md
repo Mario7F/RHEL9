@@ -983,3 +983,47 @@
 #### 18.7 Using UUID and Labels
 #### 18.8 Defining Systemd Mounts
 #### 18.9 Creating a Swap Partition
+
+### Lesson 27: Apply Network Security
+
+#### 27.1 Analyzing Service Configuration with ss
+
+##### Monitoring Network Sockets with SS
+
+- A network socket is a connection endpoint, consisting of an IP address followed by a port
+- Sockets also exist as UNIX sockets, which are endpoints in communication with services on Linux/UNIX
+- `ss` is the standard tool to show socket information
+  - `ss` show all connections
+  - `ss -tu` shows connected TCP and UDP sockets
+  - `ss -tua` adds sockets that are in listening state
+  - `ss -tln` shows TCP sockets that are in listening state only, without resolving host names
+  - `ss -tulpn` shows TCP and UDP sockets in listening state, and adds process name or PID to the output
+  
+#### 27.2 Managing RHEL Firewalling
+
+- The linux kernel provides the netfilter framework to take care of firewall related network operations:
+  - packet filtering
+  - network address translation
+  - port forwarding
+- Netfilter forwards specific operations to kernel modules
+- `nftables` is the framework that applies firewalling
+- `firewalld` is a service, managed by systemd, which RHEL uses as the front end to manage `nftables` firewalls
+  
+#### 27.3 Exploring Firewalld Components
+
+- Firewalld is using different components to make firewalling easier
+  - Service: the main component, contains one or more ports as well as optional kernel modules that should be loaded
+  - Zone: a default configuration to which network cards can be assigned to apply specific settings
+  - Ports: optional elements to allow access to specific ports
+  - Additional components are available as well, but not frequently used in a based firewall configuration
+    
+#### 27.4 Configuring a Firewall with firewall-cmd
+
+- The `firewall-cmd` command is used to write firewall configuration
+- Use the option `-- permanent` to write to persistent (but not to runtime)
+- Without `--permanent` the rule is written to runtime (but not to persistent)
+- `systemctl status firewalld` (To make sure it is running)
+- `firewall-cmd --list-all` (to see all of the configurations)
+- `firewall-cmd --get-services` (To get an overview of the different services)
+- `firewall-cmd --add-service http --permanent` (To add an service, in this case http)
+
