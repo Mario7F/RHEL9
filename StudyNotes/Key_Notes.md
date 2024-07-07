@@ -1027,3 +1027,41 @@
 - `firewall-cmd --get-services` (To get an overview of the different services)
 - `firewall-cmd --add-service http --permanent` (To add an service, in this case http)
 
+### Lesson 29: Configuring Time Services
+
+#### 29.1 Exploring Linux Time
+
+- While booting, the system gets its time from the hardware clock
+- System time is set next, according to the hardware clock
+- Interent time can be used to synchronize time
+
+##### Managing Linux Time
+
+- `hwclock` is used to set hardware time
+- Also use it to synchronize time
+  - `hwclock --systohc`
+  - `hwclock --hctosys`
+- `date` is used to show and set time
+- `timedatectl` is used to manage time and time zone configuration
+  
+#### 29.2 Setting Time with timedatectl
+
+- `timedatectl` is a new utility that allows you to manage all aspects of system time
+  - `timedatectl status` will show all time properties currently used
+  - `timedatectl set-time` is used to change the time
+  - `timedatectl set-timezone` is used to change the timezone
+  - `timedatectl set-ntp` enables or disables NTP time synchronization
+- To synchronize time using NTP, an NTP service must be configured
+  - RHEL 9 uses `chrony`
+  - `systemd-timesyncd.service` is another NTP service - not currently used on RHEL
+    
+#### 29.3 Managing an NTP Client
+
+- `chronyd` is the default RHEL 9 NTP service
+- Use `/etc/chrony.conf` to specify synchronization parameters
+  - `pool 2.rhel.pool.ntp.org iburst` configures a pool of NTP servers
+  - `server myserver.example.com` configures a single NTP time source
+  - Use `iburst` to permit fast synchronization
+- After modifying its contents, use `systemctl restart chronyd` to restart the `chronyd` service
+- Use `chronyc sources` to verify proper synchronization 
+
