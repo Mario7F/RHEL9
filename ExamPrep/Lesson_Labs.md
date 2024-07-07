@@ -189,3 +189,20 @@
 
 ![Screen Shot 2024-07-06 at 12 42 17 PM](https://github.com/Mario7F/RHEL9/assets/59115100/f3b5f880-0a55-491a-9d34-e6dc9797f090)
 
+
+### Lesson 29 Lab: Configuring Time Services
+
+- Configure your system to synchronize time with the servers in pool.ntp.org
+  
+![Screen Shot 2024-07-06 at 8 22 59 PM](https://github.com/Mario7F/RHEL9/assets/59115100/c874cbab-631e-4d74-9e93-ea490b86016e)
+
+![Screen Shot 2024-07-06 at 8 24 20 PM](https://github.com/Mario7F/RHEL9/assets/59115100/daffd868-fada-418f-8476-1b0b58227b0e)
+
+![Screen Shot 2024-07-06 at 8 25 27 PM](https://github.com/Mario7F/RHEL9/assets/59115100/07a41bc2-2ba7-4d3a-9dbd-e1df7f1f2be7)
+
+
+![Screen Shot 2024-07-06 at 8 27 36 PM](https://github.com/Mario7F/RHEL9/assets/59115100/45082c8f-68db-4738-9065-d868fb68c050)
+
+
+![Screen Shot 2024-07-06 at 8 28 52 PM](https://github.com/Mario7F/RHEL9/assets/59115100/e7c5fa5d-be5d-4fb4-8b9f-59b7a9aa7148)
+
