@@ -179,6 +179,19 @@
 - Configure your system to boot in a multi-user target by default
 - Persistently remove the options that hide startup messages while booting
 
+![Screen Shot 2024-07-09 at 10 14 47 AM](https://github.com/Mario7F/RHEL9/assets/59115100/10bcdba4-ab01-42ec-a765-488c0f253e09)
+
+
+![Screen Shot 2024-07-09 at 10 15 37 AM](https://github.com/Mario7F/RHEL9/assets/59115100/2391c623-9d3d-4785-9f00-1c495a709e93)
+
+![Screen Shot 2024-07-09 at 10 16 07 AM](https://github.com/Mario7F/RHEL9/assets/59115100/62541dd6-8384-4aff-a922-5b674323f480)
+
+![Screen Shot 2024-07-09 at 10 18 04 AM](https://github.com/Mario7F/RHEL9/assets/59115100/40fdf514-af4b-448c-ba50-bb37b15b5d28)
+
+
+![Screen Shot 2024-07-09 at 10 19 53 AM](https://github.com/Mario7F/RHEL9/assets/59115100/858b2108-cb7a-44c8-afe1-53b227676834)
+
+
 ### Lesson 27 Lab: Configuring a Firewall
 
 - Configure `firewalld` such that remote access to the SSH and FTP processes is allowed. Make sure the configuration is applied immediately as well as persistently.
