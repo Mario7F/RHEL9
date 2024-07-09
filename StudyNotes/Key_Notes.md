@@ -1,4 +1,4 @@
-# Notes From Sander Van Vught RHCSA RHEL 9 Course
+r# Notes From Sander Van Vught RHCSA RHEL 9 Course
 
 ### Lesson 4 Exploring The Essential Tools
   #### 4.2 Finding the man page
@@ -1071,6 +1071,71 @@
 - On the Grub 2 boot prompt, use `systemctl.unit=xxx.target` to boot into a specific target
 - To change between targets on a running system, use `systemctl isolate xxx.target`
 
+### Troubleshooting RHEL
+
+#### 22.1 Troubleshooting Modes
+#### 22.2 Changing the Root Password
+#### 22.3 Using the Boot Debug Shell
+
+- If something goes wrong early in the boot procedure, it may be useful to have an option to open a debug shell
+- `systemctl enable --now debug-shell.service`
+- While booting access a virtual terminal on TTY9
+- - Ctrl-Atl-F9
+  - (Mac: Cmd-Opt-Fn-F9)
+  - Enter a root shell without entering a password
+  - `systemctl disable --now debug-shell.service`
+    
+#### 22.4 Troubleshooting Filesystems Issues
+
+- Real corruption does occur, but not often, and is automatically fixed
+- Problems occur when making typo's in /etc/fstab
+- To fix: if necessary, remount filesystem in read/write state and edit /etx/fstab
+- Fragmentation can be an issue, different tools exist to fix
+  - `xfs_fsr` is the XFS File System Reorganizer, it optimizes the XFS file systems
+  - `e4defrag` can be used to defragment Ext4
+ 
+##### Preventing /etc/fstab Related Issues
+
+- Issues often occur after modifying /etc/fstab
+- To prevent having issues, do the following after making modifications
+- - Use `mount -a` to mount all filesystems in `/etc/fstab` that haven't been mounted yet
+  - Use `findmnt --verify` to verify syntax
+  - To verify that all works well, use `reboot` after making changes to `/etc/fstab`
+
+#### 22.5 Fixing Network Issues
+
+- Wrong subnet mask: all nodes in the same network should be in the same subnet
+- Wrong router: the router must always be in the lcoal network
+- DNS not working: verify /etc/resolv.conf contents
+
+#### 22.6 Managing Performance Issues
+
+- Troubleshooting performance is an art on its own
+- Focus on the four key areas of performance
+  - Memory
+  - CPU load
+  - Disk load
+  - Network
+- Use `top` to get a generic image, and more specialized tools only if you have a strong indication of what is wrong
+  
+#### 22.7 Troubleshooting Software Issues
+
+- Dependency problems with RPM's
+  - Should not occur when using repositories
+- Library problems
+  - Run `ldconfig` to update the library cache
+- Use containers to avoid software dependecy version issues
+  
+#### 22.8 Fixing Memory Shortage
+
+- Memory issues appear if available memory as shown by `free` is low
+  - The definition of low depends on server workload
+- As a first help to fix memory issues, swap space can be used
+- Use `vmstat 2 25` to make sure that adding swap space doesn't lead too much I/O traffic
+  
+#### 22.9 Consulting Red Hat Websites for Tips
+
+- Log into Redhat.com > Find Documentation
   
 ### Lesson 27: Apply Network Security
 
