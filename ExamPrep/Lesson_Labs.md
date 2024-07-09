@@ -174,6 +174,11 @@
 - Run a cron job that will issue the command `touch /tmp/cronfile` 5 minutes from now
 - Use `at` to schedule a job to power off your system at a convenient time later today
 
+### Lesson 21 Lab: Managing the Boot Procedure
+
+- Configure your system to boot in a multi-user target by default
+- Persistently remove the options that hide startup messages while booting
+
 ### Lesson 27 Lab: Configuring a Firewall
 
 - Configure `firewalld` such that remote access to the SSH and FTP processes is allowed. Make sure the configuration is applied immediately as well as persistently.
