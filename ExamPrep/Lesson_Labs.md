@@ -191,6 +191,10 @@
 
 ![Screen Shot 2024-07-09 at 10 19 53 AM](https://github.com/Mario7F/RHEL9/assets/59115100/858b2108-cb7a-44c8-afe1-53b227676834)
 
+### Lesson 22 Lab: RHEL Troubleshooting
+
+- Lets assume you have lost the root user password. Reset it. 
+
 
 ### Lesson 27 Lab: Configuring a Firewall
 
