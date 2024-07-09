@@ -1035,7 +1035,7 @@
 
 - Fireware (computer) > Boot Device (Hard Disk) > Grub (Boot Loader) > Kernel > Systemd (manages everything on the system) > Early-state > Services > Shell (user login)
 
-#### 22.2 Modifying Grub2 Runtime Parameters
+#### 21.2 Modifying Grub2 Runtime Parameters
 
 - From the Grub2 boot menu, press e to edit runtime boot options to the end of the line that starts with linux
   - `systemd.unit=emeregency.target`
@@ -1043,14 +1043,14 @@
 - Press c to enter the Grub2 command mode
   - From command mode, type help for an overview of available options
 
-#### 22.3 Changing Grub2 Persistent Parameters
+#### 21.3 Changing Grub2 Persistent Parameters
 
 - To edit persistent Grub2 parameters, edit the configuration file in `/etc/default/grub`
 - After writing changes, compile changes to grub.cfg
   - `grub2-mkconfig -o /boot/grub2/grub.cfg`
   - `grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg'
  
-#### 22.4 Managing Systemd Targets
+#### 21.4 Managing Systemd Targets
 
 - A systemd target is a group of unit files
 - Some targets are isolatable, which means that they define the final state a system is starting in
@@ -1061,12 +1061,12 @@
     
 - When enabling a unit, it is added to a specific target
 
-#### 22.5 Setting Default Systemd Target
+#### 21.5 Setting Default Systemd Target
 
 - Use `systemctl get-default` to see the current default target
 - Use `systemctl set-default` to set a new default target
 
-#### 22.6 Booting into a Specific Target
+#### 21.6 Booting into a Specific Target
 
 - On the Grub 2 boot prompt, use `systemctl.unit=xxx.target` to boot into a specific target
 - To change between targets on a running system, use `systemctl isolate xxx.target`
