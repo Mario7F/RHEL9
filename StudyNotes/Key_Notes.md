@@ -984,6 +984,94 @@
 #### 18.8 Defining Systemd Mounts
 #### 18.9 Creating a Swap Partition
 
+### Leson Lesson 20: Managing Stratis
+
+#### 20.1 Understanding the Storage Stack
+
+- The block device layer allows RHEL to use different storage solutions by including the appropriate driver in the Linux kernel
+- Multipath is an optional component that is used in storage network to provide redundancy to different block devices
+- Partitions make it possible to allocate different storage units on a block device
+- RAID allows for the creation of redundant storage volumes
+- LVM creates dynamic volumes from one or more block devices
+- Storage volumes can be used for different purposes
+  - File systems
+  - Database
+  - Ceph OSDs (Cloud storage)
+    
+#### Understanding LVM Usage Options
+
+- LVM can be used with LUKS encryption to provide device-based block encryption
+- LVM can be used with VDO deduplication and compression as feature of logical volumes
+- LUKS and VDO can be used without LVM also
+
+
+#### 20.2 Creating Stratis Volumes
+
+- Stratis volumes always use the XFS filesystem
+- Stratis volumes are thin provisioned by nature
+- Volume storage is allocated form the stratis pool
+- Each stratis volume needs a minimal size of 4 GiB
+- Because of the thin provisioning, stratis tools must be used to monitor available storage space
+
+#### Managing Stratis
+
+- To work with stratis, you'll need the `stratisd` and `stratis-cli` packages
+- Use the `stratis` command to create pools and filesystems
+- This command has awesome tab completion
+- While working with stratis, use `stratis pool list` to ensure the pool has sufficient space remaining
+- To mount stratis volumes:
+  - Use UUID
+  - Include `x-systemd.requires=stratisd.service` as a mount option
+
+#### 20.3 Using Stratis Snapshots
+
+- A stratis snapshot is a metadata copy that allows you to access the state of the snapshot at anytime
+- A snapshot is NOT a backup, but can be helpful in accessing deleted files
+- A snapshot is mounted by its device name, not by UUID
+
+### Lesson 21: Managing the Boot Procedure
+
+#### 21.1 Exploring the Boot Procedure
+
+- Fireware (computer) > Boot Device (Hard Disk) > Grub (Boot Loader) > Kernel > Systemd (manages everything on the system) > Early-state > Services > Shell (user login)
+
+#### 22.2 Modifying Grub2 Runtime Parameters
+
+- From the Grub2 boot menu, press e to edit runtime boot options to the end of the line that starts with linux
+  - `systemd.unit=emeregency.target`
+  - `systemd.unit=rescue.target`
+- Press c to enter the Grub2 command mode
+  - From command mode, type help for an overview of available options
+
+#### 22.3 Changing Grub2 Persistent Parameters
+
+- To edit persistent Grub2 parameters, edit the configuration file in `/etc/default/grub`
+- After writing changes, compile changes to grub.cfg
+  - `grub2-mkconfig -o /boot/grub2/grub.cfg`
+  - `grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg'
+ 
+#### 22.4 Managing Systemd Targets
+
+- A systemd target is a group of unit files
+- Some targets are isolatable, which means that they define the final state a system is starting in
+- - emergency.target
+  - rescue.target
+  - multi-user.target
+  - graphical.target
+    
+- When enabling a unit, it is added to a specific target
+
+#### 22.5 Setting Default Systemd Target
+
+- Use `systemctl get-default` to see the current default target
+- Use `systemctl set-default` to set a new default target
+
+#### 22.6 Booting into a Specific Target
+
+- On the Grub 2 boot prompt, use `systemctl.unit=xxx.target` to boot into a specific target
+- To change between targets on a running system, use `systemctl isolate xxx.target`
+
+  
 ### Lesson 27: Apply Network Security
 
 #### 27.1 Analyzing Service Configuration with ss
@@ -1064,4 +1152,35 @@
   - Use `iburst` to permit fast synchronization
 - After modifying its contents, use `systemctl restart chronyd` to restart the `chronyd` service
 - Use `chronyc sources` to verify proper synchronization 
+
+### Lesson 30: Using Remote Filesystems and Automount
+
+#### 30.2 Mounting NFS Shares
+
+- Make sure that `nfs-utils` is installed
+- Use `showmount -e nfsserver` to show exports
+- Use `mount nfsserver:/share /mnt` to mount
+  
+#### 30.3 Understanding Automount
+
+- Automount is a autofs service that observes directories, upon the directory activity the mount will happen.
+- In `/etc/auto.master` you'll identify the directory that automount should manage, and the file that is used for additional mount information.
+  - `/data /etc/auto.nfsdata`
+- In `/etc/auto.nfsdata` you'll identify the subdirectory on which to mount, and what to mount exactly.
+  - `files -rw nfsserver:/nfsdata`
+- Ensure the autofs service is started:
+  - `systemctl enable --now autofs`
+Tip: check /etc/auto.msic for syntax examples on the exam
+    
+#### 30.4 Configuring Automount
+
+-
+#### 30.5 Setting up Automount for Home Directories
+
+- Automount is common for home directory access
+- In this scenario, an NFS server is providing access to homedirectories, and the homedirectory is automounted by a user while logging in
+- To support different directory names in one automount line, wildcards are used
+  - `* -rw nfsserver:/home/ldap/&`
+ 
+### Lesson 31: Running Containers
 
