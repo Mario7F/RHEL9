@@ -1136,6 +1136,66 @@ r# Notes From Sander Van Vught RHCSA RHEL 9 Course
 #### 22.9 Consulting Red Hat Websites for Tips
 
 - Log into Redhat.com > Find Documentation
+
+### Lesson 23: Automating with Bash Scripts
+
+#### 23.1 Understanding Bash Scripts
+
+##### Understanding Shell Scripts
+
+- A shell script is an executable file, used to run tasks
+- Shell scripts are used to automate common tasks
+- A shell script can be as simple as a number of commands that is sequentially executed
+- Scripts normally work with variables to make them react differently in a different environments
+- Conditional statements such as `for`, `if`, `case` and `while` can be used to execute tasks only in specific conditions
+
+##### Bash Scripts Compared
+
+- Shell scripts are common as they are easy to learn and implement
+- Also, a shell will always be available to interpret code from shell scripts
+- If the script uses internal commands only, it's fast as nothing needs to be loaded
+- There is no need to compile anything
+- For more complex work, advanced scripting language like python, or automation solutions like ansible are commonly used
+  
+#### 23.2 Exploring Essential Script Components
+- To run scripts independently, store them as executable files
+- It is good practice, but not mandatory to use the .sh extension
+- Each script should start with `#!/bin/bash`, the so called shebang
+  - This identifies the shell that should be used to run the script code
+- Use `#` for comments
+- Use white lines for readability
+
+##### Using Aurguments and Variables
+
+- Variables are used to work with dynamic or site specific values
+- Variables can be provided in many ways
+  - By defining `key=value` inside the script
+  - By providing an argument while running the script; the value of the argument is stored in the positional parameter $1
+  - To define a variable, no $ is needed, to refer to it put a $ in front
+    - `color=red`
+    - `echo color`
+    - `echo $color`
+#### 23.3 Executing Conditional Code with `if` and `test`
+
+##### Understanding test
+
+- The `test` command can be used to test many things
+  - Properties of files
+  - Contents of strings
+  - Values of integers
+  - and much more
+- `test` is commonly used in `if`...`then`..`else` statements
+- The common use is `test condition`
+
+##### Using if..then..else
+
+-`if` statements are used to run commands only if a specific condition is true
+- To identify the commands to be run, `then` is used
+- `else` can optionally be used to run other commands if the condition is not true
+- `fi` must be used to close an `if` statement
+
+  
+#### 23.4 Using `for` and `while`
   
 ### Lesson 27: Apply Network Security
 
