@@ -210,6 +210,8 @@
  - Verify that X forwarding works from the SSH client
  - To perform this lab, use `localhost` as the server address
 
+### Lesson 25 Lab: Managing HTTP Services
+
 
 ### Lesson 27 Lab: Configuring a Firewall
 
