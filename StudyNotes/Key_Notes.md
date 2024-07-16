@@ -1201,6 +1201,26 @@ r# Notes From Sander Van Vught RHCSA RHEL 9 Course
 - `for` is used to iterate over a series of elements
   - Use to process all values of a variable
   - Or to work on all files in a directory that match a specific pattern
+ 
+### Lesson 24: Managing SSH
+
+#### 24.1 Understanding SSH Key-based Login
+
+#### 24.2 Setting up SSH Key-based Login
+
+- `ssh-keygen` creates a public/private key pair for the current user
+  - Setting a passphrase for the private key makes it more secure, but less convenient
+- `ssh-copy-id` copies the public key over to the target server
+
+#### 24.3 Caching SSH Keys
+
+- When using passphrases, entering a passphrase for every single command is inconvenient
+- `ssh-agent /bin/bash` allocates space in the bash shell to cache the private key passphrase
+- `ssh-add` adds the current passphrase to the cache
+- Cached passphrases stay available for the rest of the session duration
+
+#### 24.4 Defining SSH Client Configuration
+#### 24.5 Exploring Common SSH Server Options
   
 ### Lesson 27: Apply Network Security
 
