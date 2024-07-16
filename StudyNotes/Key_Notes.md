@@ -1220,8 +1220,46 @@ r# Notes From Sander Van Vught RHCSA RHEL 9 Course
 - Cached passphrases stay available for the rest of the session duration
 
 #### 24.4 Defining SSH Client Configuration
-#### 24.5 Exploring Common SSH Server Options
+
+- SSH client options can be set on the command line
+  - `ssh -X` enables X forwarding. Forwarded sessions are subject to X11 security extentions controls
+  - 'ssh -Y` enables trusted X forwarding
+- SSH client options can be set persistently in `/etc/ssh/ssh_config` or `~/.ssh/ssh_config`
   
+#### 24.5 Exploring Common SSH Server Options
+
+- Server options are set in `/etc/ssh/sshd_config`
+- - Port 22
+  - PermitRootLogin
+  - PubkeyAuthentication
+  - PasswordAuthentication
+  - X11 Forwarding
+  - AllowUsers
+
+#### 24.6 Copying Files Securely
+
+- `scp` can be used to securely copy files over the network, using the `sshd` process
+  - `scp file1 file1 student@remoteserver:/home/student`
+  - `scp -r root@remoteserver:/tmp/files`
+`sftp` offers an FTP client interface to securely transfer files using SSH
+  - Use `put /my/file` to upload a file
+  - Use `get /your/file` to download a file to the current directory
+  - Use `exit` to close an `sftp` session
+ 
+#### 24.7 Synchronizing Files Securely
+
+- `rsync` is using SSH to synchronize files
+- If source and target files already exists, `rsync` will synchronize their differences
+- The `rsync` command can be used with many options, of which the following are common
+- - `-r` will recursively synchronize the entire directory tree
+  - `-l` synchronizes symbolic links
+  - `-p` preservers symbolic links
+  - `-n` will do a dry run before actually synchronizing
+  - `-a` uses archive mode, which is equivalent to `-rlptgoD`
+  - `-A` uses archive mode and also synchronizes ACLs
+  - `-X` will synchronize SELinux context as well
+
+    
 ### Lesson 27: Apply Network Security
 
 #### 27.1 Analyzing Service Configuration with ss
