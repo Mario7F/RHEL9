@@ -1196,6 +1196,11 @@ r# Notes From Sander Van Vught RHCSA RHEL 9 Course
 
   
 #### 23.4 Using `for` and `while`
+
+- `while` is used to run commands as long as a specific condition is true
+- `for` is used to iterate over a series of elements
+  - Use to process all values of a variable
+  - Or to work on all files in a directory that match a specific pattern
   
 ### Lesson 27: Apply Network Security
 
