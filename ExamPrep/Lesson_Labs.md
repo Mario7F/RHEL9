@@ -193,7 +193,13 @@
 
 ### Lesson 22 Lab: RHEL Troubleshooting
 
-- Lets assume you have lost the root user password. Reset it. 
+- Lets assume you have lost the root user password. Reset it.
+
+### Lesson 23 Lab: Writing Shell Scripts
+
+- Write a script that makes a copy of each file that has the *.txt extension. The copy, the script should movie to the /tmp directory
+- While running the script, the directory where it should look for the files should be provided as an argument
+- If no argument was provided, the script should stop with exit code 9
 
 
 ### Lesson 27 Lab: Configuring a Firewall
