@@ -1259,6 +1259,12 @@ r# Notes From Sander Van Vught RHCSA RHEL 9 Course
   - `-A` uses archive mode and also synchronizes ACLs
   - `-X` will synchronize SELinux context as well
 
+### Lesson 23: Running HTTP Services
+
+#### 25.1 Exploring HTTP Configuration
+#### 25.2 Creating a Basic Web Site
+
+
     
 ### Lesson 27: Apply Network Security
 
