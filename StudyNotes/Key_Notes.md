@@ -1262,6 +1262,14 @@ r# Notes From Sander Van Vught RHCSA RHEL 9 Course
 ### Lesson 23: Running HTTP Services
 
 #### 25.1 Exploring HTTP Configuration
+
+- Apache (httpd) is a common web server on Linux
+- Nginx is another common web server
+- The main httpd configuration file is `/etc/httpd/conf/httpd.conf`
+- Additional drop-in files can be stored in `/etc/httpd/conf.d`
+- The default DocumentRoot is `/var/www/htdocs`
+- Apache looks for a file with the name index.html in this directory
+
 #### 25.2 Creating a Basic Web Site
 
 
