@@ -201,6 +201,15 @@
 - While running the script, the directory where it should look for the files should be provided as an argument
 - If no argument was provided, the script should stop with exit code 9
 
+### Lesson 24 Lab: Managing SSH
+
+- Set up your SSH server in such a way that
+  - SSH offers services on port 22
+  - User root is allowed to log in
+  - Graphical sessions can be forwarded
+ - Verify that X forwarding works from the SSH client
+ - To perform this lab, use `localhost` as the server address
+
 
 ### Lesson 27 Lab: Configuring a Firewall
 
