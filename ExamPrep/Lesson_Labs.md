@@ -212,6 +212,9 @@
 
 ### Lesson 25 Lab: Managing HTTP Services
 
+- Configure Apache to serve a basic website that shows the text "hello world" after connecting to it
+- Use `curl localhost` to verify connection
+
 
 ### Lesson 27 Lab: Configuring a Firewall
 
