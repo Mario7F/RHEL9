@@ -1374,15 +1374,176 @@ r# Notes From Sander Van Vught RHCSA RHEL 9 Course
   - `systemctl enable --now autofs`
 Tip: check /etc/auto.msic for syntax examples on the exam
     
-#### 30.4 Configuring Automount
-
--
 #### 30.5 Setting up Automount for Home Directories
 
 - Automount is common for home directory access
-- In this scenario, an NFS server is providing access to homedirectories, and the homedirectory is automounted by a user while logging in
+- In this scenario, an NFS server is providing access to home directories, and the homedirectory is automounted by a user while logging in
 - To support different directory names in one automount line, wildcards are used
   - `* -rw nfsserver:/home/ldap/&`
  
 ### Lesson 31: Running Containers
+
+#### 31.1 Understanding Containers
+
+##### Understanding Containers
+
+- A container is like an app on a smartphone; it's a package that contains all that is needed to run an application
+- This makes containers the solution for the dependency challenge
+- Containers are started from container images
+- Images are provided through image registries
+
+##### Containers and Linux
+
+- Containers rely on features provided by the Linux operating system
+  - Control groups set limits to the amount of resources that can be used
+  - Namespaces provide isolation to ensure the container only has access to its own data and configuration
+  - SELinux enforces security
+    
+##### Understanding Rootless Containers
+
+- Containers need a user ID to be started on the host computer
+- Root containers are started by the root user
+- Rootless containers are started as a non-root user
+  - Rootless containers can generate a UID dynamically, or be preconfigured to use a specific UID
+- Rootless containers have a few limitations
+  - No unlimited access to the filesystem
+  - Can't bind to privileged network ports
+
+##### Containers and Microservices
+
+- Complex applications are typically composed of multiple containers
+- Normally one container runs one application
+- This offers the benefit of better manageability
+- To manage microservices, orchestration platforms like Kubernetes or Red Hat OpenShift are used
+
+##### Understanding Red Hat Container Tools
+
+- podman manages containers and container images
+- buildah is advanced tool to create container images
+- skopeo is an advanced tool to manage, copy, delete and sign images
+  
+#### 31.2 Managing Containers
+
+- Container images are used to package container applications with all of their dependecies
+- Images are built according to the Open Containers Initiative (OCI) specification
+- The OCI standard guarantees compatibility so that images can be used in different environments, like `podman` on RHEL or `docker`
+
+##### Using Registries
+
+- Public registries such as hub.docker.com provide access to community-provided container images
+- Private registries can be created to host container images internally
+- Images optimized for use in Red Hat environments are provided through quay.io
+- Red Hat distributes certified images that are accessible only with Red Hat credentials
+  - registry.redhat.io is for official Red Hat products
+  - registry.connect.redhat.com is for third-party products
+- Red Hat container catalog (https://catalog.redhat.com) is a web interface to the Red Hat images
+
+##### Accessing Red Hat Registries
+
+- Red Hat registries can be accessed with a Red Hat account
+- Devoloper account (https://developers.redhat.com) do qualify
+- Use `podman login registry.redhat.io` to login to a registry
+- Use `podman login registry.redhat.io --get-login` to get your current login credentials
+
+##### Configuring Registry Access
+
+- Registry access is configured in `/etc/containers/registries.conf`
+- Default registries are in the [registries.search] section
+- Registries that don't have an SSL certificate are in [registries.insecure]
+- A user specific registries.conf file can be created as `~/.config/containers/registries.conf`
+
+##### Using Containerfile
+
+- A Containerfile (previously known as Dockerfile) is a text file with instructions to build a container image
+- Containerfiles have instructions to build a custom container based on a base image such as the UBI image
+- UBI is the Universal Base Image, an image that Red Hat uses for all of its products
+  
+#### 31.3 Running Containers
+
+- Use `podman run` to run a container image
+  - It will search for the image in the configured registries
+  - If found, it will pull the image and run the container
+- Use `podman ps` to verify that the image currently is running
+- If not seen, use `podman ps -a` to also show containers that have stopped
+- Use `podman inspect` to see what is inside an image or a container
+
+##### Understanding Container Commands
+
+- When started with `podman run`, the container runs its default command
+- To run an alternative command, it can often (not always) be specified as a command line arguement
+- - `podman run ubi8 sleep`
+- To run an image from a specific registry, specify the complete image name
+- Command line options for the specific `podman` command need to be specified before the name of the image
+
+##### Running Containers
+
+- Troubleshooting containers is often troubleshooting the container primary command
+- Notice that some containers run to completion and there's nothing really to troubleshoot if you don't see them!
+- Use `podman inspect container` to see which command is started
+- Use `podman run -it`... start the container with an interactive terminal
+- Use `podman logs` to explore logs created by the container
+  
+#### 32.4 Mapping Ports and Configuring Variables
+
+##### Managing Environment Variables
+
+- Some images require site-specific information to be passed while running
+- Use `-e KEY=VALUE` to pass these values through environment variables while running the container
+
+##### Configuring Application Access
+
+- Container access happens through port mappings
+- A port on the container host is exposed and forwards traffic to the container port
+- Port mappings can be set while starting the container, but not on a container that has already been started
+- Rootless containers can only map to a non-privileged port (higher than 1024)
+
+#### 31.5 Providing Persistent Storage
+
+##### Rootless Containers and Namespaces
+
+- Rootless containers are launched in a namespace
+- The namespace provides isolation, allowing the container inside the namespace to have root access which does not exist outside the namespace
+- This means that inside the container namespace different UIDs are used than outside of the namespace
+- To ensure that access is working all right, UIDs are mapped between the namespace and the host OS
+- The `podman unshare` command can be used to run commands inside the container namespace
+- To get the UID mapping, use `podman unshare cat /proc/self/uid_map`
+
+##### Managing Containers Using Systemd Services
+
+- Create a regular user account to manage all containers
+- Use `podman` to generate a user systemd file for an existing container
+- 
+#### 31.6 Starting Containers as Systemd
+
+- Create a regular user account to manage all containers
+- Use `podman` to generate a user systemd file for an existing container
+- Before, `mkdir ~/.config/systemd/user; cd ~/.config/systemd/user`
+- Notice the file will be generated in the current directory
+- - `podman generate systemd --name myweb --files --new`
+- To generate a service file for a root container, do it from `/etc/systemd/system` as the current directory
+
+##### Understanding podman generate --new
+
+- The `podman generate --new` optoin will create a new container when the systemd unit is started, and delete that container when the unit is stopped
+- Without the `--new` option, the container is not newly created or deleted when it is stopped
+
+##### Creating User Unit Files
+
+- Use `podman generate` to create user-specific unit files in `~/.config/systemd/user`
+- Edit the file that is generated and change the `WantedBy` line such that its read `WantedBy=default.target`
+- Manage them using `systemctl --user`
+- - `systemctl --user daemon-reload`
+  - `systemctl --user enable myapp.service` (requires linger)
+  - `systemctl --user start myapp.service`
+- `systemctl --user` commands only work when logging in on console or SSH and do not work in sudo and su sessions
+
+##### Surviving all Challenges
+
+- Log in as the user that should start the container, do NOT use `su -`
+- - set a password to do so
+- As that user, `mkdir -p ~/.config/systemd/user;cd ~/.config/systemd/user`
+- From that directory: `podman generate --new`
+- After generating, make sure that the container-name.service file has `WantedBY=default.target` (not just multi-user.target)
+
+#### 31.7 Building Images from Containerfiles
 
