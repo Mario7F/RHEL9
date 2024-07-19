@@ -248,3 +248,13 @@
 
 ![Screen Shot 2024-07-06 at 8 28 52 PM](https://github.com/Mario7F/RHEL9/assets/59115100/e7c5fa5d-be5d-4fb4-8b9f-59b7a9aa7148)
 
+### Lesson 31 Lab: Managing Containers
+
+- Ensure that you have full access to the Red Hat container repositories
+- Run a Mariadb container in Podman, which meets the following conditions
+  - The container is started as a rootless container by user student
+  - The container must be accessible at host port 3206
+  - The database root password should be set to password
+  - The container uses the name mydb
+  - A bind-mounted directory is accessible: the directory `/home/student/mariadb` on the host must be mapped to `/var/lib/mysql` in the container
+ - The container must be configured such that it automatically starts as a user systemd unit upon start of the computer
